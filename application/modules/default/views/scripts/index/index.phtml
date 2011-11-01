@@ -1,0 +1,44 @@
+<?php 
+	$this->headTitle( $this->title );
+?>
+<div id="layout_container">
+	<?php 
+	if (!empty($this->pages) && $this->pages->count() > 0):
+		?>
+	<ul class="page-list">
+		<?php
+		foreach($this->pages as $page):
+			?><li>
+				<h3 class="page-title"><?php echo $page->page_title?></h3>
+				<p class="page-content">
+					<?php echo $page->page_content?>
+				</p>
+			</li><?php
+		endforeach;
+		?>
+	</ul>
+		<?php
+	else:
+		
+		
+		/**
+		 * Enter you home page content here.
+		 */
+		?>
+		
+		
+	<h1>Success</h1>
+	Howdy! This web site appears to be running.
+		
+		
+		<?php
+	endif;
+	?>
+	<style type="text/css">
+		#statistics {
+			width: 600px;
+			height: 400px;
+		}
+	</style>
+	<div id="statistics"></div>
+</div>

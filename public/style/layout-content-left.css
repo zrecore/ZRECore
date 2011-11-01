@@ -1,0 +1,23 @@
+#layout {
+	padding-left:300px; /* "left col" width */ 
+	padding-right:150px; /* "right col" width */
+}
+
+#nav {
+	margin-left:-300px; /* "left col" width */
+	width:300px;
+}
+
+#extra {
+	width:150px;
+	margin-right:-150px; /* "right col" width */
+}
+
+#main {
+	width:100%;
+}
+
+#header {
+	width: 100%;
+	margin-bottom: 24px;
+}

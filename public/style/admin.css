@@ -1,0 +1,8 @@
+
+h1 {font-size: 1.8em;}
+h2 {font-size: 1.6em;}
+h3 {font-size: 1.4em;}
+h5 {font-size: 1.2em;}
+h6 {font-size: 1em;}
+
+#message {overflow: hidden; padding: 12px; position: absolute; float: left; z-index: 1}
