@@ -2,16 +2,17 @@
 <html>
 	<head>
 		<?php 
-//			$this->headLink()->appendStylesheet( 'http://yui.yahooapis.com/3.4.1/build/cssreset/cssreset-min.css' );
+			$this->headLink()->appendStylesheet( 'http://yui.yahooapis.com/3.4.1/build/cssreset/cssreset-min.css' );
 			$this->headLink()->appendStylesheet( 'http://yui.yahooapis.com/3.4.1/build/cssfonts/cssfonts-min.css' );
 			$this->headLink()->appendStylesheet( 'http://yui.yahooapis.com/3.4.1/build/cssgrids/grids-min.css' );
-			$this->headLink()->appendStylesheet( 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/ui-lightness/jquery-ui.css' );
+			$this->headLink()->appendStylesheet( 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/redmond/jquery-ui.css' );
 			$this->headLink()->appendStylesheet( '/style/layout-content-left.css' );
 			$this->headLink()->appendStylesheet( '/style/admin.css' );
 			
-			$this->headScript()->appendFile( 'http://yui.yahooapis.com/3.4.1/build/yui/yui-min.js' );
 			$this->headScript()->appendFile( 'https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js' );
 			$this->headScript()->appendFile( 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js' );
+			$this->headScript()->appendFile( 'http://view.jqueryui.com/master/ui/jquery.ui.menu.js' );
+			$this->headScript()->appendFile( 'http://view.jqueryui.com/master/ui/jquery.ui.menubar.js' );
 			$this->headScript()->appendFile( '/script/admin.js' );
 		?>
 		<?php echo $this->headMeta() . "\n"; ?>
@@ -20,29 +21,33 @@
 		<?php echo $this->headLink() . "\n"; ?>
 		<?php echo $this->headStyle() . "\n"; ?>
 	</head>
-	<body class="yui3-skin-sam">
+	<body class="yui3-skin-night">
 		
 		<div class="yui3-g" id="layout">
-			<div class="yui3-u" id="header">
-
-				<div class="yui3-menu yui3-menu-horizontal content-menu"><!-- Bounding box -->
-					<div class="yui3-menu-content"><!-- Content box -->
-						<ul>
-							<!-- Menu items -->
-							<li class="yui3-menuitem"><a class="yui3-menuitem-content" href="/" target="_blank">View Site</a></li>
-							<li class="yui3-menuitem"><a class="yui3-menuitem-content" href="/admin/sign/out">Sign Out</a></li>
-						</ul>
-					</div>
-				</div>
-
-			</div>
 			<div class="yui3-u" id="nav">
 
-
-
+				<ul id="user_menu">
+					<!-- Menu items -->
+					<li>
+						<a href="#">Dashboard</a>
+						<ul>
+							<li>Test1</li>
+							<li>Test2</li>
+						</ul>
+					</li>
+				</ul>
 			</div>
-			<div class="yui3-u" id="main"><?php echo $this->layout()->content; ?></div>
-			<div class="yui3-u" id="extra"></div>
+			<div class="yui3-u" id="main">
+				<div>
+					<h1 class="title"><?php $this->title;?></h1>
+					
+				</div>
+				<?php echo $this->layout()->content; ?>
+			</div>
+			<div class="yui3-u" id="extra">
+				
+			</div>
+		</div>
 	</body>
 	<?php if (!empty($this->message)): ?>
 	<div id="message" class="ui-helper-hidden">

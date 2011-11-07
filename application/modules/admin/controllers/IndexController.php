@@ -3,7 +3,7 @@
 class Admin_IndexController extends Zend_Controller_Action
 {
 	public function init() {
-		$this->_helper->layout->setLayout('layout-content-left');
+		$this->_helper->layout->setLayout('layout-admin-content-left');
 		
 		/* Initialize action controller here */
 		$request = $this->getRequest();
@@ -23,11 +23,14 @@ class Admin_IndexController extends Zend_Controller_Action
 		
 		if (file_exists(APPLICATION_PATH . '/../public' . $css_file))
 			$this->view->headLink()->appendStylesheet( $css_file );
+		
+		$this->view->title = "Administration Dashboard";
 	}
 
 	public function indexAction()
 	{
-		$this->view->message = "Test! This is a test of some sort.";
+		//$this->view->message = "Hello, World!";
+		
 	}
 	public function themeAction()
 	{

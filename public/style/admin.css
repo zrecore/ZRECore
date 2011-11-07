@@ -1,3 +1,5 @@
+html {height: 100% !important; min-height: 100% !important}
+body {height: 100% !important; min-height: 100% !important}
 
 h1 {font-size: 1.8em;}
 h2 {font-size: 1.6em;}
@@ -5,4 +7,45 @@ h3 {font-size: 1.4em;}
 h5 {font-size: 1.2em;}
 h6 {font-size: 1em;}
 
-#message {overflow: hidden; padding: 12px; position: absolute; float: left; z-index: 1}
+html
+{
+	background: url('/style/admin/images/background-stripped.png') left top repeat-x;
+}
+
+#main .title
+{
+	margin-top: 4px;
+	margin-bottom: 14px;
+	text-shadow: 0px 0px 4px #fff;
+	font-size: 24px !important;
+}
+
+#nav
+{
+	min-height: 100%;
+	margin-top: 48px;
+	padding-left: 8px;
+}
+
+#nav .menu
+{
+	width: 100%;
+	margin: 0 !important;
+	padding: 0 !important;
+	
+}
+#nav .submenu
+{
+	width: 94% !important;
+	margin-left: 5% !important;
+}
+#nav .submenu-container
+{
+	background-color: #ddd;
+}
+#nav .submenu-icon
+{
+	margin: 0;
+	padding: 0;
+	float: right;
+}

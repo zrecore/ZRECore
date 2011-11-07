@@ -1,18 +1,15 @@
 #layout {
-	height: 100%;
-	min-height: 100%;
-	padding-left:200px; /* "left col" width */ 
+	padding-left:300px; /* "left col" width */ 
 	padding-right:150px; /* "right col" width */
 	display: block;
 	position: relative;
 }
 
 #nav {
-	height: 100%;
-	min-height: 100%;
-	margin-left:-200px; /* "left col" width */
-	min-width:200px;
+	margin-left:-300px; /* "left col" width */
+	width:300px;
 	position: absolute;
+	border: solid 1px #aaa;
 }
 
 #extra {
@@ -21,8 +18,9 @@
 }
 
 #main {
-	width:100%;
-	padding-left: 2.1em;
+	width:96%;
+	padding-left: 2%;
+	padding-right: 2%;
 	position: absolute;
 }
 

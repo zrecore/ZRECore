@@ -1,0 +1,78 @@
+<?php echo $this->doctype('HTML5') . "\n"; ?>
+<html>
+	<head>
+		<?php 
+			$this->headLink()->appendStylesheet( 'http://yui.yahooapis.com/3.4.1/build/cssreset/cssreset-min.css' );
+			$this->headLink()->appendStylesheet( 'http://yui.yahooapis.com/3.4.1/build/cssfonts/cssfonts-min.css' );
+			$this->headLink()->appendStylesheet( 'http://yui.yahooapis.com/3.4.1/build/cssgrids/grids-min.css' );
+			$this->headLink()->appendStylesheet( 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/flick/jquery-ui.css' );
+//			$this->headLink()->appendStylesheet( 'http://view.jqueryui.com/menu/themes/base/jquery.ui.menu.css' );
+			$this->headLink()->appendStylesheet( '/style/layout-content-left.css' );
+			$this->headLink()->appendStylesheet( '/style/admin.css' );
+			
+			$this->headScript()->appendFile( 'https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js' );
+			$this->headScript()->appendFile( 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js' );
+			$this->headScript()->appendFile( '/script/admin.js' );
+		?>
+		<?php echo $this->headMeta() . "\n"; ?>
+		<?php echo $this->headTitle() . "\n"; ?>
+		<?php echo $this->headScript() . "\n"; ?>
+		<?php echo $this->headLink() . "\n"; ?>
+		<?php echo $this->headStyle() . "\n"; ?>
+	</head>
+	<body class="yui3-skin-night">
+		
+		<div class="yui3-g" id="layout">
+			<div class="yui3-u" id="nav">
+
+				<ul id="admin_menu" class="menu">
+					<!-- Menu items -->
+					<li><a class="menu-link" href="/admin/">Dashboard</a></li>
+					<li class="submenu-container">
+						<a href="#" class="submenu-link no-link">Catalog</a>
+						<ul id="settings_menu" class="menu submenu ui-helper-hidden">
+							<li><a class="menu-link" href="/admin/catalog/products/">Products</a></li>
+							<li><a class="menu-link" href="/admin/catalog/services/">Services</a></li>
+							<li><a class="menu-link" href="/admin/catalog/inventory/">Inventory</a></li>
+							<li><a class="menu-link" href="/admin/catalog/suppliers/">Suppliers</a></li>
+						</ul>
+					</li>
+					<li class="submenu-container">
+						<a href="#" class="submenu-link no-link">Orders</a>
+						<ul id="settings_menu" class="menu submenu ui-helper-hidden">
+							<li><a class="menu-link" href="/admin/orders/completed/">Completed</a></li>
+							<li><a class="menu-link" href="/admin/orders/pending/">Pending</a></li>
+							<li><a class="menu-link" href="/admin/orders/rma/">RMA</a></li>
+							<li><a class="menu-link" href="/admin/orders/support-request/">Support Requests</a></li>
+						</ul>
+					</li>
+					<li><a class="menu-link" href="/admin/pages/">Pages</a></li>
+					<li class="submenu-container">
+						<a href="#" class="submenu-link no-link">Settings</a>
+						<ul id="settings_menu" class="menu submenu ui-helper-hidden">
+							<li><a class="menu-link" href="/admin/settings/merchant-gateways/">Merchant Gateways</a></li>
+							<li><a class="menu-link" href="/admin/settings/review-services/">Review Services</a></li>
+							<li><a class="menu-link" href="/admin/settings/shipping-gateways/">Shipping Gateways</a></li>
+							<li><a class="menu-link" href="/admin/settings/tax-calculators/">Tax Calculators</a></li>
+							<li><a class="menu-link" href="/admin/settings/themes/">Themes</a></li>
+							<li><a class="menu-link" href="/admin/settings/widgets/">Widgets</a></li>
+						</ul>
+					</li>
+					<li><a class="menu-link" href="/admin/statistics/">Statistics</a></li>
+				</ul>
+			</div>
+			<div class="yui3-u" id="main">
+				<div>
+					<h1 class="title"><?php echo $this->title;?></h1>
+					
+				</div>
+				<?php echo $this->layout()->content; ?>
+			</div>
+		</div>
+	</body>
+	<?php if (!empty($this->message)): ?>
+	<div id="message" class="ui-helper-hidden">
+		<?php echo $this->message; ?>
+	</div>
+	<?php endif; ?>
+</html>
