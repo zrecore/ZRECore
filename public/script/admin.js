@@ -17,7 +17,7 @@ jQuery(document).ready(function ($) {
 	$('#admin_menu .submenu-container').addClass('ui-priority-primary').find('.submenu').addClass('ui-priority-secondary');
 	$('#admin_menu .submenu-link ~ .submenu').hide();
 	$('#admin_menu .menu-link').click(function (ev) {
-		window.location = $(this).attr('href');
+		window.location.href = $(this).attr('href');
 	});
 	$('#admin_menu .submenu-link').click(function (ev) {
 		
@@ -38,5 +38,30 @@ jQuery(document).ready(function ($) {
 			}
 		});
 	});
+
+	var selectedMenuLink = $('#admin_menu').find('a[href="' + window.location.pathname + '"]').append('<span class="submenu-icon ui-icon ui-icon-triangle-1-e"></span>').addClass('ui-state-highlight').attr('style', 'font-weight: normal; margin: 0 !important;');
+	var selectedMenu = selectedMenuLink.parent();
+	
+	if (selectedMenuLink.length > 0)
+	{
+		while (selectedMenu && selectedMenu.length > 0 && selectedMenu.attr('id') != 'admin_menu')
+		{
+			if (selectedMenu.hasClass('submenu'))
+			{
+				selectedMenuLink = selectedMenu.prev();
+				
+				var selectedMenuLinkIcon = selectedMenuLink.find('.submenu-icon');
+
+				if (!selectedMenu.is(':visible'))
+				{
+					selectedMenu.show(0, function () {
+						selectedMenuLinkIcon.removeClass('ui-icon-circle-triangle-e');
+						selectedMenuLinkIcon.addClass('ui-icon-circle-triangle-s');
+					});
+				}
+			}
+			selectedMenu = selectedMenu.parent();
+		}
+	}
 	
 });

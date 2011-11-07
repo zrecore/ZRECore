@@ -1,16 +1,11 @@
-html {height: 100% !important; min-height: 100% !important}
-body {height: 100% !important; min-height: 100% !important}
+html {height: 100%; min-height: 100%;}
+body {height: 100% !important; min-height: 100% !important; background: url('/style/admin/images/background-stripped.png') left top repeat-x;}
 
 h1 {font-size: 1.8em;}
 h2 {font-size: 1.6em;}
 h3 {font-size: 1.4em;}
 h5 {font-size: 1.2em;}
 h6 {font-size: 1em;}
-
-html
-{
-	background: url('/style/admin/images/background-stripped.png') left top repeat-x;
-}
 
 #main .title
 {
@@ -45,7 +40,7 @@ html
 }
 #nav .submenu-icon
 {
-	margin: 0;
+	margin: 2px !important;
 	padding: 0;
 	float: right;
 }

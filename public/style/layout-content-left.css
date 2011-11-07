@@ -2,7 +2,7 @@
 	height: 100%;
 	min-height: 100%;
 	padding-left:200px; /* "left col" width */ 
-	padding-right:150px; /* "right col" width */
+	padding-right:0px; /* "right col" width */
 	display: block;
 	position: relative;
 }
@@ -21,8 +21,10 @@
 }
 
 #main {
-	width:100%;
-	padding-left: 2.1em;
+	max-width: 100%;
+	min-width: 60%;
+	height: 100%;
+	margin-left: 2.1em;
 	position: absolute;
 }
 

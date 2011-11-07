@@ -2,16 +2,15 @@
 <html>
 	<head>
 		<?php 
-			$this->headLink()->appendStylesheet( 'http://yui.yahooapis.com/3.4.1/build/cssreset/cssreset-min.css' );
-			$this->headLink()->appendStylesheet( 'http://yui.yahooapis.com/3.4.1/build/cssfonts/cssfonts-min.css' );
-			$this->headLink()->appendStylesheet( 'http://yui.yahooapis.com/3.4.1/build/cssgrids/grids-min.css' );
-			$this->headLink()->appendStylesheet( 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/flick/jquery-ui.css' );
-//			$this->headLink()->appendStylesheet( 'http://view.jqueryui.com/menu/themes/base/jquery.ui.menu.css' );
+			$this->headLink()->appendStylesheet( '/script/yui-3.4.1/cssreset-min.css' );
+			$this->headLink()->appendStylesheet( '/script/yui-3.4.1/cssfonts-min.css' );
+			$this->headLink()->appendStylesheet( '/script/yui-3.4.1/grids-min.css' );
+			$this->headLink()->appendStylesheet( '/script/jquery-1.6.2/css/flick/jquery-ui.css' );
 			$this->headLink()->appendStylesheet( '/style/layout-content-left.css' );
 			$this->headLink()->appendStylesheet( '/style/admin.css' );
 			
-			$this->headScript()->appendFile( 'https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js' );
-			$this->headScript()->appendFile( 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js' );
+			$this->headScript()->appendFile( '/script/jquery-1.6.2/jquery-min.js' );
+			$this->headScript()->appendFile( '/script/jquery-ui-1.8.16/jquery-ui.min.js' );
 			$this->headScript()->appendFile( '/script/admin.js' );
 		?>
 		<?php echo $this->headMeta() . "\n"; ?>
@@ -28,6 +27,17 @@
 				<ul id="admin_menu" class="menu">
 					<!-- Menu items -->
 					<li><a class="menu-link" href="/admin/">Dashboard</a></li>
+					<li class="submenu-container">
+						<a href="#" class="submenu-link no-link">Developer Tools</a>
+						<ul id="settings_menu" class="menu submenu ui-helper-hidden">
+							<li><a class="menu-link" href="/admin/developer-tools/application-ini/">Application INI</a></li>
+							<li><a class="menu-link" href="/admin/developer-tools/backup-restore/">Backup &amp; Restore</a></li>
+							<li><a class="menu-link" href="/admin/developer-tools/cdn-configuration/">CDN Configuration</a></li>
+							<li><a class="menu-link" href="/admin/developer-tools/scheduled-tasks/">Scheduled Tasks</a></li>
+							<li><a class="menu-link" href="/admin/developer-tools/server-mode/">Server Mode</a></li>
+							<li><a class="menu-link" href="/admin/developer-tools/system-information/">System Information</a></li>
+						</ul>
+					</li>
 					<li class="submenu-container">
 						<a href="#" class="submenu-link no-link">Catalog</a>
 						<ul id="settings_menu" class="menu submenu ui-helper-hidden">
@@ -50,15 +60,25 @@
 					<li class="submenu-container">
 						<a href="#" class="submenu-link no-link">Settings</a>
 						<ul id="settings_menu" class="menu submenu ui-helper-hidden">
+							<li><a class="menu-link" href="/admin/settings/access-control-list/">Access Control List</a></li>
 							<li><a class="menu-link" href="/admin/settings/merchant-gateways/">Merchant Gateways</a></li>
+							<li><a class="menu-link" href="/admin/settings/plugins/">Plug-ins</a></li>
 							<li><a class="menu-link" href="/admin/settings/review-services/">Review Services</a></li>
 							<li><a class="menu-link" href="/admin/settings/shipping-gateways/">Shipping Gateways</a></li>
 							<li><a class="menu-link" href="/admin/settings/tax-calculators/">Tax Calculators</a></li>
 							<li><a class="menu-link" href="/admin/settings/themes/">Themes</a></li>
+							<li><a class="menu-link" href="/admin/settings/users-groups/">Users &amp; Groups</a></li>
 							<li><a class="menu-link" href="/admin/settings/widgets/">Widgets</a></li>
 						</ul>
 					</li>
-					<li><a class="menu-link" href="/admin/statistics/">Statistics</a></li>
+					<li class="submenu-container">
+						<a href="#" class="submenu-link no-link">Statistics</a>
+						<ul id="settings_menu" class="menu submenu ui-helper-hidden">
+							<li><a class="menu-link" href="/admin/statistics/google-analytics/">Google Analytics</a></li>
+							<li><a class="menu-link" href="/admin/statistics/omniture/">Omniture</a></li>
+							<li><a class="menu-link" href="/admin/statistics/plugins/">Plug-ins</a></li>
+						</ul>
+					</li>
 				</ul>
 			</div>
 			<div class="yui3-u" id="main">
