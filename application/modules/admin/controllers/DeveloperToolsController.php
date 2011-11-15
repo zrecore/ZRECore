@@ -2,10 +2,6 @@
 
 class Admin_DeveloperToolsController extends Controller_Module_Admin
 {
-	public function init()
-	{
-		parent::init();
-	}
 	
 	public function applicationIniAction()
 	{

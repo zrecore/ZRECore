@@ -1,6 +1,6 @@
 <?php
 
-class Admin_SignController extends Zend_Controller_Abstract
+class Admin_SignController extends Controller_Module_Admin
 {
 	public function inAction()
 	{

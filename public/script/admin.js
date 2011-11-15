@@ -13,7 +13,7 @@ jQuery(document).ready(function ($) {
 	
 	$('.menu').menu();
 	$('#admin_menu').addClass('ui-corner-all');
-	$('#admin_menu .submenu-link').prepend('<span class="submenu-icon ui-icon ui-icon-circle-triangle-e"></span>');
+	$('#admin_menu .submenu-link').prepend('<div class="ui-helper-reset submenu-icon ui-icon ui-icon-circle-triangle-e"></div>');
 	$('#admin_menu .submenu-container').addClass('ui-priority-primary').find('.submenu').addClass('ui-priority-secondary');
 	$('#admin_menu .submenu-link ~ .submenu').hide();
 	$('#admin_menu .menu-link').click(function (ev) {
@@ -39,7 +39,7 @@ jQuery(document).ready(function ($) {
 		});
 	});
 
-	var selectedMenuLink = $('#admin_menu').find('a[href="' + window.location.pathname + '"]').append('<span class="submenu-icon ui-icon ui-icon-triangle-1-e"></span>').addClass('ui-state-highlight').attr('style', 'font-weight: normal; margin: 0 !important;');
+	var selectedMenuLink = $('#admin_menu').find('a[href="' + window.location.pathname + '"]').append('<div class="ui-helper-reset submenu-icon ui-icon ui-icon-triangle-1-e"></div>').addClass('ui-state-focus').attr('style', 'font-weight: normal; margin: 0 !important;');
 	var selectedMenu = selectedMenuLink.parent();
 	
 	if (selectedMenuLink.length > 0)
@@ -54,6 +54,7 @@ jQuery(document).ready(function ($) {
 
 				if (!selectedMenu.is(':visible'))
 				{
+					
 					selectedMenu.show(0, function () {
 						selectedMenuLinkIcon.removeClass('ui-icon-circle-triangle-e');
 						selectedMenuLinkIcon.addClass('ui-icon-circle-triangle-s');
@@ -64,4 +65,52 @@ jQuery(document).ready(function ($) {
 		}
 	}
 	
+	$('#dashboard_options').quickform({
+		content: '<ul class="quick-form-unordered-list">' + 
+				'<li><a href="/admin/sign/out/">Sign Out</a></li>' + 
+				'<li><a href="#two-column" class="option-dashboard option-dashboard-columns">Two-Column Dashboard</a></li>' + 
+				'<li><a href="#three-column" class="option-dashboard option-dashboard-columns">Three-Column Dashboard</a></li>' + 
+				'<li><a href="#four-column" class="option-dashboard option-dashboard-columns">Four-Column Dashboard</a></li>' + 
+			'</ul>'
+	});
+	$('#dashboard_options').parent().find('.quick-form-unordered-list').menu().find('a').click(function (ev) {
+		var link = $(this);
+		$('#dashboard_options').quickform('close');
+		
+		if (link.hasClass('option-dashboard'))
+		{
+			ev.preventDefault();
+			
+			if (link.hasClass('option-dashboard-columns'))
+			{
+				var dashboardWidgets = $('.dashboard-widgets');
+				dashboardWidgets.find('.widget-box')
+					.removeClass('widget-box-quarter')
+					.removeClass('widget-box-third')
+					.removeClass('widget-box-half')
+					.removeClass('ui-helper-hidden');
+
+				switch(link.attr('href'))
+				{
+					case '#two-column':
+						dashboardWidgets.find('.widget-box').addClass('widget-box-half');
+						dashboardWidgets.find('.widget-box').each(function (i, widget) {
+							if (i > 1) $(widget).addClass('ui-helper-hidden');
+						});
+						break;
+					case '#three-column':
+						dashboardWidgets.find('.widget-box').addClass('widget-box-third');
+						dashboardWidgets.find('.widget-box').each(function (i, widget) {
+							if (i > 2) $(widget).addClass('ui-helper-hidden');
+						});
+						break;
+					case '#four-column':
+						dashboardWidgets.find('.widget-box').addClass('widget-box-quarter');
+						break;
+				}
+			}
+		} else {
+			window.location.href = $(this).attr('href');
+		}
+	});
 });

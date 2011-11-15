@@ -26,7 +26,7 @@ class Controller_Module_Admin extends Zend_Controller_Action
 		if (file_exists(APPLICATION_PATH . '/../public' . $css_file))
 			$this->view->headLink()->appendStylesheet( $css_file );
 		
-		$this->view->title = "Administration Dashboard";
+		$this->view->title = "ZRECommerce (v2.0.0)";
 		parent::init();
 	}
 	
