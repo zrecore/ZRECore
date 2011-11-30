@@ -11,7 +11,7 @@
 			
 			$this->headScript()->appendFile( '/script/jquery-1.6.2/jquery-min.js' );
 			$this->headScript()->appendFile( '/script/jquery-ui-1.8.16/jquery-ui.min.js' );
-			$this->headScript()->appendFile( '/script/jquery-1.6.2/jquery.quickform.js' );
+			$this->headScript()->appendFile( '/script/jquery-1.6.2/jquery.flyout.js' );
 			$this->headScript()->appendFile( '/script/admin.js' );
 		?>
 		<?php echo $this->headMeta() . "\n"; ?>
@@ -61,6 +61,7 @@
 					<li class="submenu-container">
 						<a href="#" class="submenu-link no-link">Settings</a>
 						<ul id="settings_menu" class="menu submenu ui-helper-hidden">
+							<li><a class="menu-link" href="/admin/settings/crm-integration/">CRM Integration</a></li>
 							<li><a class="menu-link" href="/admin/settings/merchant-gateways/">Merchant Gateways</a></li>
 							<li><a class="menu-link" href="/admin/settings/plugins/">Plug-ins</a></li>
 							<li><a class="menu-link" href="/admin/settings/review-services/">Review Services</a></li>

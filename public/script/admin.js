@@ -64,10 +64,23 @@ jQuery(document).ready(function ($) {
 			selectedMenu = selectedMenu.parent();
 		}
 	}
-	
-	$('#dashboard_options').quickform({
+	$('#view_site').button({
+		icons: {
+			primary: "ui-icon-home"
+		}
+	});
+	$('#sign_out').button({
+		icons: {
+			primary: "ui-icon-arrowreturnthick-1-w"
+		}
+	});
+	$('#dashboard_options').button({
+		icons: {
+			primary: "ui-icon-gear"
+		},
+		text: false
+	}).flyout({
 		content: '<ul class="quick-form-unordered-list">' + 
-				'<li><a href="/admin/sign/out/">Sign Out</a></li>' + 
 				'<li><a href="#two-column" class="option-dashboard option-dashboard-columns">Two-Column Dashboard</a></li>' + 
 				'<li><a href="#three-column" class="option-dashboard option-dashboard-columns">Three-Column Dashboard</a></li>' + 
 				'<li><a href="#four-column" class="option-dashboard option-dashboard-columns">Four-Column Dashboard</a></li>' + 
@@ -75,7 +88,7 @@ jQuery(document).ready(function ($) {
 	});
 	$('#dashboard_options').parent().find('.quick-form-unordered-list').menu().find('a').click(function (ev) {
 		var link = $(this);
-		$('#dashboard_options').quickform('close');
+		$('#dashboard_options').flyout('close');
 		
 		if (link.hasClass('option-dashboard'))
 		{
@@ -108,6 +121,7 @@ jQuery(document).ready(function ($) {
 						dashboardWidgets.find('.widget-box').addClass('widget-box-quarter');
 						break;
 				}
+				// @todo save layout mode, reload on page load.
 			}
 		} else {
 			window.location.href = $(this).attr('href');
