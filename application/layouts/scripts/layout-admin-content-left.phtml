@@ -1,4 +1,5 @@
 <?php echo $this->doctype('HTML5') . "\n"; ?>
+<?php $t = $this->translate; ?>
 <html>
 	<head>
 		<?php 
@@ -27,63 +28,81 @@
 
 				<ul id="admin_menu" class="menu">
 					<!-- Menu items -->
-					<li><a class="menu-link" href="/admin/">Admin Dashboard</a></li>
+					<li><a class="menu-link" href="/admin/"><?php echo $t->_('Admin Dashboard');?></a></li>
 					<li class="submenu-container">
-						<a href="#" class="submenu-link no-link">Developer Tools</a>
-						<ul id="developer_tools_menu" class="menu submenu ui-helper-hidden">
-							<li><a class="menu-link" href="/admin/developer-tools/application-ini/">Application INI</a></li>
-							<li><a class="menu-link" href="/admin/developer-tools/backup-restore/">Backup &amp; Restore</a></li>
-							<li><a class="menu-link" href="/admin/developer-tools/cdn-configuration/">CDN Configuration</a></li>
-							<li><a class="menu-link" href="/admin/developer-tools/scheduled-tasks/">Scheduled Tasks</a></li>
-							<li><a class="menu-link" href="/admin/developer-tools/server-mode/">Server Mode</a></li>
-							<li><a class="menu-link" href="/admin/developer-tools/system-information/">System Information</a></li>
-						</ul>
-					</li>
-					<li class="submenu-container">
-						<a href="#" class="submenu-link no-link">Catalog</a>
-						<ul id="catalog_menu" class="menu submenu ui-helper-hidden">
-							<li><a class="menu-link" href="/admin/catalog/products/">Products</a></li>
-							<li><a class="menu-link" href="/admin/catalog/services/">Services</a></li>
-							<li><a class="menu-link" href="/admin/catalog/inventory/">Inventory</a></li>
-							<li><a class="menu-link" href="/admin/catalog/suppliers/">Suppliers</a></li>
-						</ul>
-					</li>
-					<li class="submenu-container">
-						<a href="#" class="submenu-link no-link">Orders</a>
-						<ul id="orders_menu" class="menu submenu ui-helper-hidden">
-							<li><a class="menu-link" href="/admin/orders/completed/">Completed</a></li>
-							<li><a class="menu-link" href="/admin/orders/pending/">Pending</a></li>
-							<li><a class="menu-link" href="/admin/orders/rma/">RMA</a></li>
-							<li><a class="menu-link" href="/admin/orders/support-request/">Support Requests</a></li>
-						</ul>
-					</li>
-					<li><a class="menu-link" href="/admin/pages/">Pages</a></li>
-					<li class="submenu-container">
-						<a href="#" class="submenu-link no-link">Settings</a>
+						<a href="#" class="submenu-link no-link"><?php echo $t->_('Appearance');?></a>
 						<ul id="settings_menu" class="menu submenu ui-helper-hidden">
-							<li><a class="menu-link" href="/admin/settings/crm-integration/">CRM Integration</a></li>
-							<li><a class="menu-link" href="/admin/settings/merchant-gateways/">Merchant Gateways</a></li>
-							<li><a class="menu-link" href="/admin/settings/plugins/">Plug-ins</a></li>
-							<li><a class="menu-link" href="/admin/settings/review-services/">Review Services</a></li>
-							<li><a class="menu-link" href="/admin/settings/shipping-gateways/">Shipping Gateways</a></li>
-							<li><a class="menu-link" href="/admin/settings/tax-calculators/">Tax Calculators</a></li>
-							<li><a class="menu-link" href="/admin/settings/themes/">Themes</a></li>
-							<li class="submenu-container">
-								<a class="submenu-link no-link" href="#">Users &amp; Groups</a>
-								<ul class="menu submenu ui-helper-hidden">
-									<li><a class="menu-link" href="/admin/settings/access-control-list/">Access Control List</a></li>
-									<li><a class="menu-link" href="/admin/settings/groups/">Groups</a></li>
-									<li><a class="menu-link" href="/admin/settings/users/">Users</a></li>
-								</ul>
-							</li>
-							<li><a class="menu-link" href="/admin/settings/widgets/">Widgets</a></li>
+							<li><a class="menu-link" href="/admin/appearance/themes/"><?php echo $t->_('Themes');?></a></li>
+							<li><a class="menu-link" href="/admin/appearance/widgets/"><?php echo $t->_('Widgets');?></a></li>
+							<li><a class="menu-link" href="/admin/appearance/menus/"><?php echo $t->_('Menus');?></a></li>
+						</ul>
+					</li>
+					<li class="submenu-container">
+						<a href="#" class="submenu-link no-link"><?php echo $t->_('Developer Tools');?></a>
+						<ul id="developer_tools_menu" class="menu submenu ui-helper-hidden">
+							<li><a class="menu-link" href="/admin/developer-tools/application-ini/"><?php echo $t->_('Application INI');?></a></li>
+							<li><a class="menu-link" href="/admin/developer-tools/backup-restore/"><?php echo $t->_('Backup &amp; Restore');?></a></li>
+							<li><a class="menu-link" href="/admin/developer-tools/cdn-configuration/"><?php echo $t->_('CDN Configuration');?></a></li>
+							<li><a class="menu-link" href="/admin/developer-tools/scheduled-tasks/"><?php echo $t->_('Scheduled Tasks');?></a></li>
+							<li><a class="menu-link" href="/admin/developer-tools/server-mode/"><?php echo $t->_('Server Mode');?></a></li>
+							<li><a class="menu-link" href="/admin/developer-tools/system-information/"><?php echo $t->_('System Information');?></a></li>
+						</ul>
+					</li>
+					<li class="submenu-container">
+						<a href="#" class="submenu-link no-link"><?php echo $t->_('Catalog');?></a>
+						<ul id="catalog_menu" class="menu submenu ui-helper-hidden">
+							<li><a class="menu-link" href="/admin/catalog/products/"><?php echo $t->_('Products');?></a></li>
+							<li><a class="menu-link" href="/admin/catalog/services/"><?php echo $t->_('Services');?></a></li>
+							<li><a class="menu-link" href="/admin/catalog/inventory/"><?php echo $t->_('Inventory');?></a></li>
+							<li><a class="menu-link" href="/admin/catalog/suppliers/"><?php echo $t->_('Suppliers');?></a></li>
+						</ul>
+					</li>
+					<li class="submenu-container">
+						<a href="#" class="submenu-link no-link"><?php echo $t->_('Orders');?></a>
+						<ul id="orders_menu" class="menu submenu ui-helper-hidden">
+							<li><a class="menu-link" href="/admin/orders/completed/"><?php echo $t->_('Completed');?></a></li>
+							<li><a class="menu-link" href="/admin/orders/pending/"><?php echo $t->_('Pending');?></a></li>
+							<li><a class="menu-link" href="/admin/orders/rma/"><?php echo $t->_('RMA');?></a></li>
+							<li><a class="menu-link" href="/admin/orders/support-request/"><?php echo $t->_('Support Requests');?></a></li>
+						</ul>
+					</li>
+					<li class="submenu-container">
+						<a href="#" class="submenu-link no-link"><?php echo $t->_('Pages');?></a>
+						<ul id="settings_menu" class="menu submenu ui-helper-hidden">
+							<li><a class="menu-link" href="/admin/pages/all-pages/"><?php echo $t->_('All Pages');?></a></li>
+							<li><a class="menu-link" href="/admin/pages/add-new/"><?php echo $t->_('Add New');?></a></li>
+						</ul>
+					</li>
+					<li class="submenu-container">
+						<a href="#" class="submenu-link no-link"><?php echo $t->_('Plug-ins');?></a>
+						<ul id="settings_menu" class="menu submenu ui-helper-hidden">
+							<li><a class="menu-link" href="/admin/plugins/installed/"><?php echo $t->_('Installed');?></a></li>
+							<li><a class="menu-link" href="/admin/plugins/add-new/"><?php echo $t->_('Add New');?></a></li>
+						</ul>
+					</li>
+					<li class="submenu-container">
+						<a href="#" class="submenu-link no-link"><?php echo $t->_('Settings');?></a>
+						<ul id="settings_menu" class="menu submenu ui-helper-hidden">
+							<li><a class="menu-link" href="/admin/settings/crm-integration/"><?php echo $t->_('CRM Integration');?></a></li>
+							<li><a class="menu-link" href="/admin/settings/merchant-gateways/"><?php echo $t->_('Merchant Gateways');?></a></li>
+							<li><a class="menu-link" href="/admin/settings/review-services/"><?php echo $t->_('Review Services');?></a></li>
+							<li><a class="menu-link" href="/admin/settings/shipping-gateways/"><?php echo $t->_('Shipping Gateways');?></a></li>
+							<li><a class="menu-link" href="/admin/settings/tax-calculators/"><?php echo $t->_('Tax Calculators');?></a></li>
 						</ul>
 					</li>
 					<li class="submenu-container">
 						<a href="#" class="submenu-link no-link">Statistics</a>
 						<ul id="statistics_menu" class="menu submenu ui-helper-hidden">
-							<li><a class="menu-link" href="/admin/statistics/google-analytics/">Google Analytics</a></li>
-							<li><a class="menu-link" href="/admin/statistics/omniture/">Omniture</a></li>
+							<li><a class="menu-link" href="/admin/statistics/google-analytics/"><?php echo $t->_('Google Analytics');?></a></li>
+							<li><a class="menu-link" href="/admin/statistics/omniture/"><?php echo $t->_('Omniture');?></a></li>
+						</ul>
+					</li>
+					<li class="submenu-container">
+						<a href="#" class="submenu-link no-link"><?php echo $t->_('Users');?></a>
+						<ul id="settings_menu" class="menu submenu ui-helper-hidden">
+							<li><a class="menu-link" href="/admin/users/all-users/"><?php echo $t->_('All Users');?></a></li>
+							<li><a class="menu-link" href="/admin/users/add-new/"><?php echo $t->_('Add New');?></a></li>
+							<li><a class="menu-link" href="/admin/users/roles/"><?php echo $t->_('Roles');?></a></li>
 						</ul>
 					</li>
 				</ul>

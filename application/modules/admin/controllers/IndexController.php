@@ -2,19 +2,16 @@
 
 class Admin_IndexController extends Controller_Module_Admin
 {
+	
 	public function init() 
 	{
 		parent::init();
-		$this->view->title = 'Dashboard';
+		$t = $this->translate;
+		$this->view->title = $t->_('Dashboard');
 		
 	}
 
 	public function indexAction()
-	{
-		//$this->view->message = "Hello, World!";
-		
-	}
-	public function themeAction()
 	{
 		
 	}

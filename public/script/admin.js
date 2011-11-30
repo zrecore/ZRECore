@@ -81,9 +81,9 @@ jQuery(document).ready(function ($) {
 		text: false
 	}).flyout({
 		content: '<ul class="quick-form-unordered-list">' + 
-				'<li><a href="#two-column" class="option-dashboard option-dashboard-columns">Two-Column Dashboard</a></li>' + 
-				'<li><a href="#three-column" class="option-dashboard option-dashboard-columns">Three-Column Dashboard</a></li>' + 
-				'<li><a href="#four-column" class="option-dashboard option-dashboard-columns">Four-Column Dashboard</a></li>' + 
+				'<li><a href="#two-column" class="option-dashboard option-dashboard-columns">Two-Columns</a></li>' + 
+				'<li><a href="#three-column" class="option-dashboard option-dashboard-columns">Three-Columns</a></li>' + 
+				'<li><a href="#four-column" class="option-dashboard option-dashboard-columns">Four-Columns</a></li>' + 
 			'</ul>'
 	});
 	$('#dashboard_options').parent().find('.quick-form-unordered-list').menu().find('a').click(function (ev) {

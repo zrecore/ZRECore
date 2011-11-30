@@ -4,12 +4,13 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
+$t = $this->translate;
 ?>
 <div class="page-header">
 	<ul class="inline-ul">
-		<li><a id="view_site" href="/">View Site</a></li>
-		<li><a id="sign_out" href="/admin/sign/out/">Sign Out</a></li>
-		<li><a id="dashboard_options">Dashboard Options</a></li>
+		<li><a id="view_site" href="/"><?php echo $t->_('View Site');?></a></li>
+		<li><a id="sign_out" href="/admin/sign/out/"><?php echo $t->_('Sign Out');?></a></li>
+		<li><a id="dashboard_options"><?php echo $t->_('Dashboard Options');?></a></li>
 	</ul>
 </div>
 <ul class="dashboard-widgets">

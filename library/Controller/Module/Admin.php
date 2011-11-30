@@ -2,6 +2,7 @@
 
 class Controller_Module_Admin extends Zend_Controller_Action
 {
+	protected $translate = null;
 	public function init()
 	{
 		
@@ -27,6 +28,8 @@ class Controller_Module_Admin extends Zend_Controller_Action
 			$this->view->headLink()->appendStylesheet( $css_file );
 		
 		$this->view->title = "ZRECommerce (v2.0.0)";
+		
+		$this->translate = $this->view->translate = $t = $this->getInvokeArg('bootstrap')->getResource('translate');
 		parent::init();
 	}
 	
