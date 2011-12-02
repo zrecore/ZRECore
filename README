@@ -1,3 +1,12 @@
 ZRECore provides a Mobile and E-Commerce boiler-plate application, based on the Zend Framework.
 
 This code is provided to you under the terms of the GNU General Public License V3 or higher. It can be found at http://www.gnu.org/copyleft/gpl.html
+
+Remember to add the Zend Framework to your include path, or just install the Zend Framework via PEAR on your system.
+
+The administrative URL by default is /admin/.
+
+Please note: Because this project is still being developed, it isn't ready for production. I've yet to re-add ACLs, Authentication, and a couple of other things I found particularly useful from the ZRECommerce project.
+
+
+I was inspired by some of the nicer features found in Wordpress, Joomla, and a few things I did right during the ZRECommerce project. If interested in developing code, contact me via my blog at www.alexventure.com
