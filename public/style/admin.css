@@ -80,6 +80,9 @@ textarea {
 	padding-right: 4px;
 	background-color: #ddd;
 	border-right: solid 1px #aaa;
+	-moz-box-shadow:	0px 0px 10px #222;
+	-webkit-box-shadow:	0px 0px 10px #222;
+	box-shadow:		0px 0px 10px #222;
 }
 
 #nav .menu
@@ -139,23 +142,38 @@ textarea {
 .dashboard-widgets .widget-box
 {
 	margin: 1%;
-	padding: 0;
+	padding: 0 !important;
 	display: inline-block;
 	height: 100%;
 	max-height: 100%;
-	border: dotted 1px #ccc;
+	float: left;
+	text-align: center;
 }
 
 .dashboard-widgets .widget-box-quarter {width: 22%;}
 .dashboard-widgets .widget-box-third {width: 30%;}
 .dashboard-widgets .widget-box-half {width: 47%;}
 
+.dashboard-widgets .widget-box-item {
+	margin: 0 1em 1em 0 !important;
+}
+
+.dashboard-widgets .widget-box-item-header {
+	 margin: 0.3em; padding-bottom: 4px; padding-left: 0.2em;
+}
+
+.dashboard-widgets .widget-box-item .ui-icon { float: right; }
+.dashboard-widgets .widget-box-item .widget-box-item-content { padding: 0.4em; }
+.dashboard-widgets .ui-sortable-placeholder { border: 1px dotted black; visibility: visible !important; height: 50px !important; }
+.dashboard-widgets .ui-sortable-placeholder * { visibility: hidden; }
+
 .page-header {display: block; position: relative; width: 99%; min-height: 24px;}
 
-.quick-form-container {position: absolute; border: solid 1px #aaa; background-color: #fff; z-index: 1; margin-left: -3px !important; padding: 2px; min-width: 100px; float: right; 
-		      -moz-box-shadow: 3px 3px 8px #000;
-		      -webkit-box-shadow: 3px 3px 8px #000;
-		      box-shadow: 3px 3px 8px #000;
+.quick-form-container {
+	position: absolute; border: solid 1px #aaa; background-color: #fff; z-index: 1; margin-left: -3px !important; padding: 2px; min-width: 100px; float: right; 
+	-moz-box-shadow: 3px 3px 8px #000;
+	-webkit-box-shadow: 3px 3px 8px #000;
+	box-shadow: 3px 3px 8px #000;
 }
 
 .quick-form-tab {padding: 0; margin: 0; border: none; }

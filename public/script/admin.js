@@ -108,17 +108,25 @@ jQuery(document).ready(function ($) {
 					case '#two-column':
 						dashboardWidgets.find('.widget-box').addClass('widget-box-half');
 						dashboardWidgets.find('.widget-box').each(function (i, widget) {
-							if (i > 1) $(widget).addClass('ui-helper-hidden');
+							if (i > 1) {
+								$(widget).addClass('ui-helper-hidden').hide();
+							} else {
+								$(widget).show();
+							}
 						});
 						break;
 					case '#three-column':
 						dashboardWidgets.find('.widget-box').addClass('widget-box-third');
 						dashboardWidgets.find('.widget-box').each(function (i, widget) {
-							if (i > 2) $(widget).addClass('ui-helper-hidden');
+							if (i > 2) {
+								$(widget).addClass('ui-helper-hidden').hide();
+							} else {
+								$(widget).show();
+							}
 						});
 						break;
 					case '#four-column':
-						dashboardWidgets.find('.widget-box').addClass('widget-box-quarter');
+						dashboardWidgets.find('.widget-box').addClass('widget-box-quarter').show();
 						break;
 				}
 				// @todo save layout mode, reload on page load.
@@ -127,4 +135,30 @@ jQuery(document).ready(function ($) {
 			window.location.href = $(this).attr('href');
 		}
 	});
+	
+	var widgetBox = $('.dashboard-widgets .widget-box');
+	widgetBox.sortable({
+		connectWith: '.widget-box',
+		over: function () {
+			$(this).addClass('ui-sortable-placeholder');
+		},
+		out: function () {
+			$(this).removeClass('ui-sortable-placeholder');
+		}
+	})
+	
+	widgetBox.find('.widget-box-item')
+		.addClass('ui-widget ui-widget-content ui-helper-clearfix ui-corner-all')
+	.find('.widget-box-item-header').addClass('ui-widget-header ui-corner-all')
+		.prepend("<span class='ui-icon ui-icon-minusthick'></span>")
+		.end()
+	.find('.widget-box-item-content');
+	
+	widgetBox.find('.widget-box-item-header .ui-icon').click(function () {
+		$( this ).toggleClass( "ui-icon-minusthick" ).toggleClass( "ui-icon-plusthick" );
+		$( this ).parents( ".widget-box-item:first" ).find( ".widget-box-item-content" ).toggle();
+	});
+	
+	widgetBox.disableSelection();
+	
 });
