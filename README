@@ -14,3 +14,11 @@ Please note: Because this project is still being developed, it isn't ready for p
 
 
 I was inspired by some of the nicer features found in Wordpress, Joomla, and a few things I did right during the ZRECommerce project. If interested in developing code, contact me via my blog at www.alexventure.com
+
+
+============
+Samples
+============
+Sample observer - Hooks into our Observer/Subject environment and echos "Hello World!" when the "Auth" subject's "setIsAuthenticated()" method is called. This sample is designed to help you create your own custom observer classes.
+See: /custom/Auth.HelloWorld.php
+See: /application/configs/observers.ini
