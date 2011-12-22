@@ -1,6 +1,6 @@
 <?php
 
-class Auth_User implements SplObserver
+class Auth_User extends App_Observer_Abstract
 {
 	protected $name;
 	
