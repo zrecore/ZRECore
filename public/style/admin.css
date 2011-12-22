@@ -163,7 +163,16 @@ textarea {
 }
 
 .dashboard-widgets .widget-box-item .ui-icon { float: right; }
-.dashboard-widgets .widget-box-item .widget-box-item-content { padding: 0.4em; }
+.dashboard-widgets .widget-box-item .widget-box-item-content { padding: 0.4em; text-align: left;}
+
+.dashboard-widgets .list-item .list-item-label { font-weight: bold; font-size: 0.8em;}
+.dashboard-widgets .list-item .list-item-content { float: right; font-size: 0.8em;}
+
+.dashboard-widgets .list-item li { border-top: dotted 1px #aaa; font-size: 0.8em; color: #606060; }
+.dashboard-widgets .list-item li:hover { background-color: #eefeff; }
+
+.dashboard-widgets .list-item li a {font-size: 0.8em !important; color: #006acf;}
+
 .dashboard-widgets .ui-sortable-placeholder { border: 1px dotted black; visibility: visible !important; height: 50px !important; }
 .dashboard-widgets .ui-sortable-placeholder * { visibility: hidden; }
 

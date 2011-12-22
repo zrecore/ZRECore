@@ -6,7 +6,7 @@
 			$this->headLink()->appendStylesheet( '/script/yui-3.4.1/cssreset-min.css' );
 			$this->headLink()->appendStylesheet( '/script/yui-3.4.1/cssfonts-min.css' );
 			$this->headLink()->appendStylesheet( '/script/yui-3.4.1/grids-min.css' );
-			$this->headLink()->appendStylesheet( '/script/jquery-1.6.2/css/flick/jquery-ui.css' );
+			$this->headLink()->appendStylesheet( '/script/jquery-ui-1.8.16/css/' . (!empty($this->theme) ? $this->theme : 'flick') . '/jquery-ui.css' );
 			$this->headLink()->appendStylesheet( '/style/layout-content-left.css' );
 			$this->headLink()->appendStylesheet( '/style/admin.css' );
 			

@@ -1,6 +1,17 @@
 <?php echo $this->doctype('HTML5') . "\n";?>
 <html>
 	<head>
+		<?php 
+			$this->headLink()->appendStylesheet( '/script/yui-3.4.1/cssreset-min.css' );
+			$this->headLink()->appendStylesheet( '/script/yui-3.4.1/cssfonts-min.css' );
+			$this->headLink()->appendStylesheet( '/script/yui-3.4.1/grids-min.css' );
+			$this->headLink()->appendStylesheet( '/script/jquery-ui-1.8.16/css/flick/jquery-ui.css' );
+			$this->headLink()->appendStylesheet( '/style/layout-content-left.css' );
+			
+			$this->headScript()->appendFile( '/script/jquery-1.6.2/jquery-min.js' );
+			$this->headScript()->appendFile( '/script/jquery-ui-1.8.16/jquery-ui.min.js' );
+			$this->headScript()->appendFile( '/script/jquery-1.6.2/jquery.flyout.js' );
+		?>
 		<?php echo $this->headMeta() . "\n";?>
 		<?php echo $this->headTitle() . "\n";?>
 		<?php echo $this->headLink() . "\n";?>
