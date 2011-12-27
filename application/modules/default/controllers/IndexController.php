@@ -33,11 +33,12 @@ class Default_IndexController extends Zend_Controller_Action {
 		$rq = $this->getRequest();
 		$page_slug = $rq->getParam('page_slug');
 		
-		if ( !empty($slug) ) {
-			$this->view->pages = Cms_Page::bySlug($pageslug, 1);
+		if ( !empty($page_slug) ) {
+			$pages = Cms_Page::bySlug($page_slug, 1);
 			
-			if (!empty($this->view->pages)) {
-				$this->view->headTitle($this->view->pages->current()->page_title);
+			if (!empty($pages) && $pages->count() > 0) {
+				$this->view->pages = $pages;
+				$this->view->headTitle($pages->current()->page_title);
 			} else {
 				// Send a 404
 				throw new Zend_Controller_Router_Exception('Page not found', 404);
@@ -47,14 +48,18 @@ class Default_IndexController extends Zend_Controller_Action {
 		}
 	}
 
-	public function blogAction() {
+	public function postAction() {
 		$rq = $this->getRequest();
 		
 		$yr = $rq->getParam('year');
 		$mo = $rq->getParam('month');
 		$day = $rq->getParam('day');
 		
-		$slug = $rq->getParam('slug');
+		$slug = $rq->getParam('post_slug');
+		
+		echo "<pre>";
+		print_r($rq->getParams());
+		echo "</pre>";
 	}
 }
 

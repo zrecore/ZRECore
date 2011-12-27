@@ -61,12 +61,9 @@ class App_Subject_Abstract implements SplSubject
 	
 	public function notify()
 	{
-		$result = 0;
-		
 		foreach ( $this->_observers as $value )
 		{
-			$result += $value->update( $this );
+			$value->update( $this, func_get_args() );
 		}
-		return $result;
 	}
 }

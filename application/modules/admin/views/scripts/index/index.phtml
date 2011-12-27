@@ -6,6 +6,14 @@
  */
 $t = $this->translate;
 
+$observerSubjects = Zend_Registry::get('OBSERVER_SUBJECTS');
+$cart = $observerSubjects['Cart'];
+
+$cartItem = new Cart_Item_ServiceHour();
+
+Cart::addToCart( array($cartItem) );
+
+exit;
 ?>
 <div class="page-header">
 	<ul class="inline-ul">

@@ -1,7 +1,7 @@
 <?php
 /**
- * This is a sample observer class that echoes out "Hello World!" when
- * the "Auth" observer subject's "setIsAuthenticated()" method is called.
+ * This is a sample observer plug-in that echoes out "Hello World!" when
+ * the "Auth" observer subject's "authenticate()" method is called.
  * 
  * As you can see, the file name must be formatted as 
  *	"[ObserverSubject].[ClassName].php
@@ -14,30 +14,24 @@
  * ...and the class name within said file would be written 
  *	"Custom_Auth_HelloWorld"
  * 
- * Please note, any observer classes you write MUST implement the SplObserver
- * interface. The App_Observer_Abstract class already does this for you, and 
- * implements an empty "update()" method. You should override the "update()"
- * method in your custom observer class to fit your needs. For the sake of this 
- * example, we simply echo out "Hello World!" within some "<pre>" tags.
+ * Please note, any observer classes you write should extend the App_Observer_Abstract
+ * class, as it already implements the SplObserver interface and calls the 
+ * corresponding event handler within your plug-in automatically.
  * 
- * Available observer subjects you can observe:
+ * In this example, we simply echo out "Hello World!" and the authentication 
+ * status within some "<pre>" tags when the "authenticate()" method is called.
  * 
- *	- Auth
- *		- getIsAuthenticated() ...Returns TRUE if we are marked as 
- *		authenticated, FALSE if we are not.
- *	- Cart
- *	- Cms
- *	- Service_Paypal
- * 
- * @author AAlbino
- * @copyright Alexventure.com 2011 - GPL v3 or higher. This code is provided to you as-is.
- * @link http://softcoded.com/pdfs/subject_observer.pdf
+ * @author The Alex Venture Project
+ * @license GPL v3 or higher.
+ * @copyright Copyright 2011 The Alex Venture project. This code is provided to you as-is under the terms of the GPL v3 or higher.
  */
 class Custom_Auth_HelloWorld extends App_Observer_Abstract
 {
-	public function update( SplSubject $s )
-	{
-		if ( $s->getIsAuthenticated() )
+	public function authenticate($username, $password, $options = null) {
+		
+		$auth = Zend_Auth::getInstance();
+		
+		if ( $auth->hasIdentity() )
 		{
 			echo "<pre>Hello World! (Authenticated)</pre>";
 		} else {
