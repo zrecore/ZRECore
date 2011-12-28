@@ -1,36 +1,36 @@
 DROP TABLE IF EXISTS item;
 
 CREATE TABLE item(
-	item_id INT PRIMARY KEY AUTOINCREMENT,
+	item_id INTEGER PRIMARY KEY AUTOINCREMENT,
 	item_name VARCHAR(255) NOT NULL,
 	item_slug VARCHAR(255) NOT NULL,
 	item_sku VARCHAR(255) NOT NULL,
 	item_description TEXT NOT NULL,
 	price FLOAT NOT NULL,
-	currency_id_fk INT NOT NULL,
-	category_id_fk INT NOT NULL,
-	availability_date INT NOT NULL,
-	finite_amount_available INT DEFAULT NULL,
+	currency_id_fk INTEGER NOT NULL,
+	category_id_fk INTEGER NOT NULL,
+	availability_date INTEGER NOT NULL,
+	finite_amount_available INTEGER DEFAULT NULL,
 	finite_unit_of_measure VARCHAR(255) DEFAULT NULL,
-	max_purchase_amount INT NOT NULL,
+	max_purchase_amount INTEGER NOT NULL,
 	metric_unit_of_measure VARCHAR(255) DEFAULT NULL,
 	metric_width FLOAT DEFAULT NULL,
 	metric_height FLOAT DEFAULT NULL,
 	metric_depth FLOAT DEFAULT NULL,
-	min_purchase_amount INT NOT NULL,
-	perishable_date INT DEFAULT NULL,
+	min_purchase_amount INTEGER NOT NULL,
+	perishable_date INTEGER DEFAULT NULL,
 	weight FLOAT DEFAULT NULL,
 	weight_unit_of_measure VARCHAR(255) DEFAULT NULL,
-	is_available INT DEFAULT 0,
-	is_finite INT DEFAULT 1,
-	is_perishable INT DEFAULT 0,
-	is_tangible INT DEFAULT 1,
+	is_available INTEGER DEFAULT 0,
+	is_finite INTEGER DEFAULT 1,
+	is_perishable INTEGER DEFAULT 0,
+	is_tangible INTEGER DEFAULT 1,
 
 	UNIQUE(item_name),
 	UNIQUE(item_sku),
 	
 	FOREIGN KEY(category_id_fk) REFERENCES category(category_id)
-)
+);
 
 CREATE INDEX idx_item_name ON item(item_name);
 CREATE INDEX idx_item_slug ON item(item_slug);

@@ -2,7 +2,10 @@ BEGIN TRANSACTION;
 .read aclPermission.sql
 .read aclResource.sql
 .read aclRole.sql
+.read category.sql
 .read comment.sql
+.read currency.sql
+.read item.sql
 .read page.sql
 .read postComment.sql
 .read user.sql

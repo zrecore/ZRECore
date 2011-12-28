@@ -1,10 +1,10 @@
 DROP TABLE IF EXISTS category;
 
 CREATE TABLE category(
-	category_id INT PRIMARY KEY AUTOINCREMENT,
+	category_id INTEGER PRIMARY KEY AUTOINCREMENT,
 	category_name VARCHAR(255),
 	category_slug VARCHAR(255),
-	category_parent_id INT DEFAULT NULL,
+	category_parent_id INTEGER DEFAULT NULL,
 	UNIQUE(category_name),
 	UNIQUE(category_slug)
 );

@@ -1,7 +1,7 @@
 DROP TABLE IF EXISTS currency;
 
 CREATE TABLE currency(
-	currency_id INT PRIMARY KEY AUTOINCREMENT,
+	currency_id INTEGER PRIMARY KEY AUTOINCREMENT,
 	currency_code VARCHAR(3) NOT NULL,
 	currency_name VARCHAR(255) NOT NULL
 );
