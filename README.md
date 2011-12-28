@@ -37,8 +37,8 @@ For those of you who prefer the bleeding edge of technology, you can just check 
 ## Database
 The .sq3 database file location can be specified in [your installation directory]/application/configs/application.ini under the '; Database' comment
 
-You can use the default sqlite3 database file in [your installation directory]/data/sqlite/data.sq3 after following the instructions in [your installation directory]/data/sqlite/install.php
-Then, move or copy data.sq3 into some directory outside your installation and update application.ini accordingly. That way, you can simply overwrite your ZRECore files with newer ones without loosing your working database.
+You can use the default sqlite3 database file in [your installation directory]/data/sqlite/data.sq3 ...Feel free to use the sqlite3 client to open the .sq3 file and then use the `.read` command to (re)create whatever table you want. Each file is individually wrapped in its own .sql file for your convenience.
+Then, move or copy data.sq3 into some directory outside your installation and update application.ini accordingly.
 
 *NOTE: You are responsible for setting permissions on the copied/moved data.sq3 file in order to keep it secure, yet accessible by this application.*
 
