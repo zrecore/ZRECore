@@ -1,12 +1,7 @@
 <?php
 
 class Cart_Observer_Subject extends App_Subject_Abstract
-{
-	public function __construct()
-	{
-		
-	}
-	
+{	
 	public function renderForm( $formKey, Zend_View $view)
 	{
 		$this->notify(__FUNCTION__, $formKey, $view);

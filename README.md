@@ -15,6 +15,8 @@ This installation is made to work on Unix/Linux operating systems. If you're rea
 I was inspired by some of the nicer features found in Wordpress, Joomla, and a few things I did right during the ZRECommerce project. 
 I can be contacted via my blog at http://www.alexventure.com
 
+This application uses the phpass library (public domain). See http://www.openwall.com/phpass/
+
 # Backing up
 Always back up. Just copy your ZRECore installation directory somewhere safe every so often (or commit to your own github fork). That way, if you ever need to undo a boo-boo, you'll be fine.
 Your `data.sq3` file is especially important. Wherever you decide to keep it, don't forget to back it up too. (Keep reading, you'll see what that's all about further down.)
@@ -37,7 +39,7 @@ For those of you who prefer the bleeding edge of technology, you can just check 
 ## Database
 The .sq3 database file location can be specified in [your installation directory]/application/configs/application.ini under the '; Database' comment
 
-You can use the default sqlite3 database file in [your installation directory]/data/sqlite/data.sq3 ...Feel free to use the sqlite3 client to open the .sq3 file and then use the `.read` command to (re)create whatever table you want. Each file is individually wrapped in its own .sql file for your convenience.
+You can use the default sqlite3 database file in [your installation directory]/data/sqlite/data.sq3 ...Feel free to use the sqlite3 client to open the .sq3 file and then use the `.read` command on the install_first_user.sql to create the basic (re)create whatever table you want. Each table is individually wrapped in its own .sql file for your convenience. The `install_first_user.sql` inserts the 'admin` user, with a temporary password of `password321`
 Then, move or copy data.sq3 into some directory outside your installation and update application.ini accordingly.
 
 *NOTE: You are responsible for setting permissions on the copied/moved data.sq3 file in order to keep it secure, yet accessible by this application.*
@@ -126,8 +128,8 @@ Available observer subjects are in associative array format and can be retrieved
 
 Simply replace the key 'NameOfObserverSubject' with one of the following:
 
-* `Auth` - Notifies attached observers when the following methods are called:
-    * `setIsAuthenticate(bool $bool)` - Sets the authenticated flag to TRUE or FALSE.
+* `Auth` - Notifies attached observers when the following methods are called, and passes along the arguments:
+    * `authenticate(string $username, string $password, array $options = null)` - 
 
 * `Cart` - Notifies attached observers when the following methods are called:
     * `renderForm(string $formKey, Zend_View $view)` - Renders the requested form view helper.
