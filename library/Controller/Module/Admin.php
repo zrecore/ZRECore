@@ -3,9 +3,11 @@
 class Controller_Module_Admin extends Zend_Controller_Action
 {
 	protected $translate = null;
+	protected $require_auth = 1;
+	
 	public function init()
 	{
-		
+		parent::init();
 		$this->_helper->layout->setLayout('layout-admin-content-left');
 		
 		/* Initialize action controller here */
@@ -27,10 +29,18 @@ class Controller_Module_Admin extends Zend_Controller_Action
 		if (file_exists(APPLICATION_PATH . '/../public' . $css_file))
 			$this->view->headLink()->appendStylesheet( $css_file );
 		
-		$this->view->title = "ZRECommerce (v2.0.0)";
+		$this->view->title = "ZRECore";
 		
 		$this->translate = $this->view->translate = $t = $this->getInvokeArg('bootstrap')->getResource('translate');
-		parent::init();
+		
+		if ($this->require_auth == 1)
+		{
+			$auth = Zend_Auth::getInstance();
+			if (!$auth->hasIdentity())
+			{
+				$this->_redirect('/admin/sign/in/');
+			}
+		}
 	}
 	
 }

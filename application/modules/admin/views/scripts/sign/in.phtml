@@ -4,4 +4,10 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
+$t = $this->translate;
 ?>
+<form action="" method="post" class="sign-in-form">
+	<input type="text" name="username" id="username" value="<?php echo $t->_('User Name');?>" />
+	<input type="password" name="password" id="password" value="" />
+	<input type="submit" name="submit" id="submit" value="<?php echo $t->_('Go');?>" />
+</form>

@@ -189,3 +189,5 @@ textarea {
 .quick-form-tab-over {}
 
 .quick-form-unordered-list {width: 94%;}
+
+.sign-in-form input { font-size: 1.8em; padding: 0.2em; border: solid 1px #aaa;}

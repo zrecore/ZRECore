@@ -11,15 +11,8 @@ class Custom_Auth_Default extends App_Observer_Abstract
 			$auth->setStorage( new Zend_Auth_Storage_Session );
 		}
 		
+		$adapter = new Auth_Adapter_Phpass($username, $password);
 		
-
-		$adapter = new Zend_Auth_Adapter_DbTable(
-			$zendDb, 
-			$tableName, 
-			$identityColumn, 
-			$credentialColumn, 
-			$credentialTreatment);
-		
-		$auth->authenticate($adapter);
+		$result = $auth->authenticate($adapter);
 	}
 }

@@ -1,0 +1,42 @@
+<?php echo $this->doctype('HTML5') . "\n"; ?>
+<?php $t = $this->translate; ?>
+<html>
+	<head>
+		<?php 
+			$this->headLink()->appendStylesheet( '/script/yui-3.4.1/cssreset-min.css' );
+			$this->headLink()->appendStylesheet( '/script/yui-3.4.1/cssfonts-min.css' );
+			$this->headLink()->appendStylesheet( '/script/yui-3.4.1/grids-min.css' );
+			$this->headLink()->appendStylesheet( '/script/jquery-ui-1.8.16/css/' . (!empty($this->theme) ? $this->theme : 'flick') . '/jquery-ui.css' );
+			$this->headLink()->appendStylesheet( '/style/layout-content-modal.css' );
+			$this->headLink()->appendStylesheet( '/style/admin.css' );
+			
+			$this->headScript()->appendFile( '/script/jquery-1.6.2/jquery-min.js' );
+			$this->headScript()->appendFile( '/script/jquery-ui-1.8.16/jquery-ui.min.js' );
+			$this->headScript()->appendFile( '/script/jquery-1.6.2/jquery.flyout.js' );
+			$this->headScript()->appendFile( '/script/admin.js' );
+		?>
+		<?php echo $this->headMeta() . "\n"; ?>
+		<?php echo $this->headTitle() . "\n"; ?>
+		<?php echo $this->headScript() . "\n"; ?>
+		<?php echo $this->headLink() . "\n"; ?>
+		<?php echo $this->headStyle() . "\n"; ?>
+	</head>
+	<body class="yui3-skin-night">
+		
+		<div class="yui3-g" id="layout">
+			<div class="yui3-u" id="main">
+				<div class="title-container">
+					<h1 class="title"><?php echo $this->title;?></h1>
+				</div>
+				<div class="content-container">
+				<?php echo $this->layout()->content; ?>
+				</div>
+			</div>
+		</div>
+	</body>
+	<?php if (!empty($this->message)): ?>
+	<div id="message" class="ui-helper-hidden">
+		<?php echo $this->message; ?>
+	</div>
+	<?php endif; ?>
+</html>

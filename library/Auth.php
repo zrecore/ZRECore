@@ -5,23 +5,11 @@ class Auth
 	static function authenticate($username, $password, $options = null)
 	{
 		$observerSubjects = Zend_Registry::get('OBSERVER_SUBJECTS');
-		$cart = $observerSubjects['Auth'];
+		$auth = $observerSubjects['Auth'];
 		
-		$result = $cart->addToCart($items);
+		$result = $auth->authenticate($username, $password, $options);
 		
-		$observerSubjects['Auth'] = $cart;
-		Zend_Registry::set('OBSERVER_SUBJECTS', $observerSubjects);
-		
-		return $result;
-	}
-	
-	static function isAuthenticated() {
-		$observerSubjects = Zend_Registry::get('OBSERVER_SUBJECTS');
-		$cart = $observerSubjects['Auth'];
-		
-		$result = $cart->isAuthenticated();
-		
-		$observerSubjects['Auth'] = $cart;
+		$observerSubjects['Auth'] = $auth;
 		Zend_Registry::set('OBSERVER_SUBJECTS', $observerSubjects);
 		
 		return $result;

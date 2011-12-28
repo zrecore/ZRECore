@@ -1,0 +1,26 @@
+#layout {
+	height: 100%;
+	min-height: 100%;
+	padding-left:0px; /* "left col" width */ 
+	padding-right:0px; /* "right col" width */
+	display: block;
+	position: relative;
+	text-align: center;
+}
+
+#main {
+	max-width: 50%;
+	min-width: 50%;
+	width: 50%;
+	height: 100%;
+	margin: 0;
+	padding: 1em;
+	position: block;
+	text-align: left;
+}
+
+#header {
+	width: 100% !important;
+	display: block;
+	clear: both;
+}
