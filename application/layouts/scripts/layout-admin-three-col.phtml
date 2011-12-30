@@ -1,0 +1,57 @@
+<?php echo $this->doctype('HTML5') . "\n"; ?>
+<?php $t = $this->translate; ?>
+<html>
+	<head>
+		<?php 
+			$this->headLink()->appendStylesheet( '/script/yui-' . (!empty($this->yuiVersion) ? $this->yuiVersion : '3.4.1') . '/cssreset-min.css' );
+			$this->headLink()->appendStylesheet( '/script/yui-' . (!empty($this->yuiVersion) ? $this->yuiVersion : '3.4.1') . '/cssfonts-min.css' );
+			$this->headLink()->appendStylesheet( '/script/yui-' . (!empty($this->yuiVersion) ? $this->yuiVersion : '3.4.1') . '/grids-min.css' );
+			$this->headLink()->appendStylesheet( '/script/jquery-ui-' . (!empty($this->jqueryUiVersion) ? $this->jqueryUiVersion : '1.8.16') . '/css/' . (!empty($this->theme) ? $this->theme : 'flick') . '/jquery-ui.css' );
+			$this->headLink()->appendStylesheet( '/style/layout-content-left.css' );
+			$this->headLink()->appendStylesheet( '/style/admin.css' );
+			
+			$this->headScript()->appendFile( '/script/jquery-' . (!empty($this->jqueryVersion) ? $this->jqueryVersion : '1.6.2') . '/jquery-min.js' );
+			$this->headScript()->appendFile( '/script/jquery-ui-' . (!empty($this->jqueryUiVersion) ? $this->jqueryUiVersion : '1.8.16') . '/jquery-ui.min.js' );
+			$this->headScript()->appendFile( '/script/jquery-' . (!empty($this->jqueryVersion) ? $this->jqueryVersion : '1.6.2') . '/jquery.flyout.js' );
+			$this->headScript()->appendFile( '/script/admin.js' );
+		?>
+		<?php echo $this->headMeta() . "\n"; ?>
+		<?php echo $this->headTitle() . "\n"; ?>
+		<?php echo $this->headScript() . "\n"; ?>
+		<?php echo $this->headLink() . "\n"; ?>
+		<?php echo $this->headStyle() . "\n"; ?>
+	</head>
+	<body class="yui3-skin-night">
+		
+		<div class="yui3-g" id="layout">
+			<div class="yui3-u" id="nav">
+
+				<ul id="user_menu">
+					<!-- Menu items -->
+					<li>
+						<a href="#">Dashboard</a>
+						<ul>
+							<li>Test1</li>
+							<li>Test2</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+			<div class="yui3-u" id="main">
+				<div>
+					<h1 class="title"><?php $this->title;?></h1>
+					
+				</div>
+				<?php echo $this->layout()->content; ?>
+			</div>
+			<div class="yui3-u" id="extra">
+				
+			</div>
+		</div>
+	</body>
+	<?php if (!empty($this->message)): ?>
+	<div id="message" class="ui-helper-hidden">
+		<?php echo $this->message; ?>
+	</div>
+	<?php endif; ?>
+</html>

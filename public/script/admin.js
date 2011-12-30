@@ -12,6 +12,7 @@ jQuery(document).ready(function ($) {
 	}
 	
 	$('.menu').menu();
+	$('#admin_menu').menu();
 	$('#admin_menu').addClass('ui-corner-all');
 	$('#admin_menu .submenu-link').prepend('<div class="ui-helper-reset submenu-icon ui-icon ui-icon-circle-triangle-e"></div>');
 	$('#admin_menu .submenu-container').addClass('ui-priority-primary').find('.submenu').addClass('ui-priority-secondary');

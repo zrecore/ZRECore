@@ -75,10 +75,10 @@ textarea {
 	min-height: 100%;
 	margin-top: 0px;
 	margin-bottom: 0;
-	padding-bottom: 12px;
+	padding-bottom: 0px;
 	padding-left: 0;
 	padding-right: 4px;
-	background-color: #ddd;
+	
 	border-right: solid 1px #aaa;
 	-moz-box-shadow:	0px 0px 10px #222;
 	-webkit-box-shadow:	0px 0px 10px #222;
@@ -92,27 +92,14 @@ textarea {
 	padding: 0 !important;
 	
 }
-#nav .menu li 
-{
-	border-top: solid 1px #eee;
-	border-bottom: solid 1px #aaa;
-}
+#nav .menu li {}
 #nav .submenu
 {
 	width: 94% !important;
 	margin-left: 5% !important;
 }
-#nav .submenu li
-{
-	border: none !important;
-	-moz-box-shadow:	none !important;
-	-webkit-box-shadow:	none !important;
-	box-shadow:		none !important;
-}
-#nav .submenu-container
-{
-	background-color: #ddd;
-}
+#nav .submenu li {}
+#nav .submenu-container {}
 #nav .submenu-icon
 {
 	margin: 2px !important;
@@ -129,6 +116,7 @@ textarea {
 	padding-right: 0;
 	margin-right: 0;
 }
+#admin_menu {height: 99%;}
 
 .dashboard-widgets
 {

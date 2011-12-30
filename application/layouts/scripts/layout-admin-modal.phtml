@@ -3,16 +3,16 @@
 <html>
 	<head>
 		<?php 
-			$this->headLink()->appendStylesheet( '/script/yui-3.4.1/cssreset-min.css' );
-			$this->headLink()->appendStylesheet( '/script/yui-3.4.1/cssfonts-min.css' );
-			$this->headLink()->appendStylesheet( '/script/yui-3.4.1/grids-min.css' );
-			$this->headLink()->appendStylesheet( '/script/jquery-ui-1.8.16/css/' . (!empty($this->theme) ? $this->theme : 'flick') . '/jquery-ui.css' );
-			$this->headLink()->appendStylesheet( '/style/layout-content-modal.css' );
+			$this->headLink()->appendStylesheet( '/script/yui-' . (!empty($this->yuiVersion) ? $this->yuiVersion : '3.4.1') . '/cssreset-min.css' );
+			$this->headLink()->appendStylesheet( '/script/yui-' . (!empty($this->yuiVersion) ? $this->yuiVersion : '3.4.1') . '/cssfonts-min.css' );
+			$this->headLink()->appendStylesheet( '/script/yui-' . (!empty($this->yuiVersion) ? $this->yuiVersion : '3.4.1') . '/grids-min.css' );
+			$this->headLink()->appendStylesheet( '/script/jquery-ui-' . (!empty($this->jqueryUiVersion) ? $this->jqueryUiVersion : '1.8.16') . '/css/' . (!empty($this->theme) ? $this->theme : 'flick') . '/jquery-ui.css' );
+			$this->headLink()->appendStylesheet( '/style/layout-content-left.css' );
 			$this->headLink()->appendStylesheet( '/style/admin.css' );
 			
-			$this->headScript()->appendFile( '/script/jquery-1.6.2/jquery-min.js' );
-			$this->headScript()->appendFile( '/script/jquery-ui-1.8.16/jquery-ui.min.js' );
-			$this->headScript()->appendFile( '/script/jquery-1.6.2/jquery.flyout.js' );
+			$this->headScript()->appendFile( '/script/jquery-' . (!empty($this->jqueryVersion) ? $this->jqueryVersion : '1.6.2') . '/jquery-min.js' );
+			$this->headScript()->appendFile( '/script/jquery-ui-' . (!empty($this->jqueryUiVersion) ? $this->jqueryUiVersion : '1.8.16') . '/jquery-ui.min.js' );
+			$this->headScript()->appendFile( '/script/jquery-' . (!empty($this->jqueryVersion) ? $this->jqueryVersion : '1.6.2') . '/jquery.flyout.js' );
 			$this->headScript()->appendFile( '/script/admin.js' );
 		?>
 		<?php echo $this->headMeta() . "\n"; ?>
@@ -26,7 +26,7 @@
 		<div class="yui3-g" id="layout">
 			<div class="yui3-u" id="main">
 				<div class="title-container">
-					<h1 class="title"><?php echo $this->title;?></h1>
+					<h1 class="title"><?php echo $t->_($this->title);?></h1>
 				</div>
 				<div class="content-container">
 				<?php echo $this->layout()->content; ?>

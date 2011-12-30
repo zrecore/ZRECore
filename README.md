@@ -1,6 +1,9 @@
-# ZRECore provides a Mobile and E-Commerce boiler-plate application, based on the Zend Framework.
+# ZRECore - The most intuitive approach to e-commerce application development. This application provides a Mobile and E-Commerce application environment, built upon the Zend Framework MVC library.
 
 This code is provided to you under the terms of the GNU General Public License V3 or higher. It can be found at http://www.gnu.org/copyleft/gpl.html
+Copyrights 2009 The Alex Venture Project http://www.alexventure.com. All rights reserved.
+
+You can contact me with questions/comments at my website: http://www.alexventure.com
 
 # Requirements
 This installation is made to work on Unix/Linux operating systems. If you're really inclined to make this application work on a Windows machine, feel free to port it.
@@ -16,6 +19,10 @@ I was inspired by some of the nicer features found in Wordpress, Joomla, and a f
 I can be contacted via my blog at http://www.alexventure.com
 
 This application uses the phpass library (public domain). See http://www.openwall.com/phpass/
+This application uses the jQuery and jQuery UI library + css. Copyrights 2010 The jQuery Project and the jQuery UI Team. See http://jquery.org/
+I did not include jQuery UI's "Hot Sneaks", "Dot Luv", or "Swanky Purse" themes because they have CSS breakage issues not present in the other themes.
+
+The Zend Framework, phpass library, jQuery library, jQuery UI library, PayPal API, and other third-party files are copyright their respective owners. Any third-party files distributed herein is distributed under the terms of each third-party file license. This application uses the phpass library, hence, you are responsible for following encryption/hashing laws in your own country if applicable.
 
 # Backing up
 Always back up. Just copy your ZRECore installation directory somewhere safe every so often (or commit to your own github fork). That way, if you ever need to undo a boo-boo, you'll be fine.
@@ -24,33 +31,33 @@ Your `data.sq3` file is especially important. Wherever you decide to keep it, do
 # Installation
 Downloads can be found at https://github.com/aalbino/ZRECore/downloads
 Additionally, you can fork me off of http://github.com/aalbino/ZRECore/ and then check out your own fork onto your local machine using git (read below).
-*The `_install.sql` inserts the 'admin` user, with a temporary password of `password321`*
+*The `_install.sql` inserts the `admin` user, with a temporary password of `password321`*
 
 ## File Setup
-Extract the contents of the ZRECore download archive into /var/www/ZRECore/ (or whatever directory you plan to host these files from)
-For example, let's say you downloaded aalbino-ZRECore-a6a4749.tar.gz and extracted the archive into /home/User/Downloads/aalbino-ZRECore-a6a4749/
+Extract the contents of the ZRECore download archive into `/var/www/ZRECore/` (or whatever directory you plan to host these files from)
+For example, let's say you downloaded `aalbino-ZRECore-a6a4749.tar.gz` and extracted the archive into `/home/User/Downloads/aalbino-ZRECore-a6a4749/`
 
-If you are going to run this installation under /var/www/www.mywebsite.com/ you could do the following:
+If you are going to run this installation under `/var/www/www.mywebsite.com/` you could do the following:
 
-cd /home/User/Downloads/aalbino-ZRECore-a6a4749/
-mv * /var/www/www.mywebsite.com/
+    cd /home/User/Downloads/aalbino-ZRECore-a6a4749/
+    mv * /var/www/www.mywebsite.com/
 
-For those of you who prefer the bleeding edge of technology, you can just check out a copy from github.com directly into /var/www/www.mywebsite.com/
+For those of you who prefer the bleeding edge of technology, you can just check out a copy from github.com directly into `/var/www/www.mywebsite.com/`
 
 ## Database
-The .sq3 database file location can be specified in [your installation directory]/application/configs/application.ini under the '; Database' comment
+The .sq3 database file location can be specified in `(your installation directory)/application/configs/application.ini` under the `'; Database'` comment
 
-You can use the default sqlite3 database file in [your installation directory]/data/sqlite/data.sq3 ...Feel free to use the sqlite3 client to open the .sq3 file and then use the `.read` command on the `_install.sql` file to restore the database to it's begining state, or use the `.read` command on whatever provided .sql file to (re)create a table. Each table is individually wrapped in its own .sql file for your convenience. 
+You can use the default sqlite3 database file in `(your installation directory)/data/sqlite/data.sq3` ...Feel free to use the `sqlite3` client to open the .sq3 file and then use the `.read` command on the `_install.sql` file to restore the database to it's begining state, or use the `.read` command on whatever provided .sql file to (re)create a table. Each table is individually wrapped in its own .sql file for your convenience. 
 
-Then, move or copy data.sq3 into some directory outside your installation and update application.ini accordingly.
+Then, move or copy data.sq3 into some directory outside your installation and update `application.ini` accordingly.
 
 *NOTE: You are responsible for setting permissions on the copied/moved data.sq3 file in order to keep it secure, yet accessible by this application.*
 
 ## Virtual Host
 
-You will need to create two files in /etc/apache2/sites-available ...one for the HTTP version of your installation, and one for the HTTPS version.
+You will need to create two files in `/etc/apache2/sites-available` ...one for the HTTP version of your installation, and one for the HTTPS version.
 
-Here is a sample (HTTP) Apache2 virtual host configuration file named www.example.com (/etc/apache2/sites-available/www.example.com):
+Here is a sample (HTTP) Apache2 virtual host configuration file named `www.example.com` (usually saved as `/etc/apache2/sites-available/www.example.com`):
 
     <VirtualHost *:80>
         ServerName www.example.com
@@ -66,7 +73,7 @@ Here is a sample (HTTP) Apache2 virtual host configuration file named www.exampl
         </Directory>
     </VirtualHost>
 
-Here is a sample (HTTPS) Apache2 virtual host configuration file named www.example.com-ssl (/etc/apache2/sites-available/www.example.com-ssl):
+Here is a sample (HTTPS) Apache2 virtual host configuration file named `www.example.com-ssl` (usually saved as `/etc/apache2/sites-available/www.example.com-ssl`):
 
     <VirtualHost *:443>
     	ServerName www.example.com
@@ -100,14 +107,16 @@ Here is a sample (HTTPS) Apache2 virtual host configuration file named www.examp
 
 *Remember to modify these host files to reflect the correct server name, document root, and SSL certificate file locations accordingly.*
 
-If you are installing on your own local development machine, you may need to add the following entry into your /etc/hosts file as well (under the last entry for 127.0.0.1):
-`127.0.0.1	www.example.com`
-That way, when you brows to www.example.com, you will actually request your local machine's virtual host "www.example.com"
+If you are installing on your own local development machine, you may need to add the following entry into your `/etc/hosts` file as well (under the last entry for `127.0.0.1`):
+
+    127.0.0.1	www.example.com
+
+That way, when you browse to `www.example.com`, you will actually request your local machine's virtual host "www.example.com"
 
 Finally, type `a2ensite www.example.com` and hit enter, then `a2ensite www.example.com-ssl` and hit enter, then type `sudo service apache2 reload` to reload the Apache2 server configuration files.
 This enables the HTTP and HTTPS versions of your virtual hosts, and reloads the Apache 2 server.
 
-If you did everything correctly, you should be able to open up your browser and go to www.example.com (or whatever fake URL you've been using in its place up to this point) and see a working installation.
+If you did everything correctly, you should be able to open up your browser and go to `www.example.com` (or whatever fake URL you've been using in its place up to this point) and see a working installation.
 
 # Samples
 

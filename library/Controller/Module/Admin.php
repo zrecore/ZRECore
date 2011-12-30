@@ -4,6 +4,7 @@ class Controller_Module_Admin extends Zend_Controller_Action
 {
 	protected $translate = null;
 	protected $require_auth = 1;
+	protected $sessionNamespace = null;
 	
 	public function init()
 	{
@@ -32,6 +33,18 @@ class Controller_Module_Admin extends Zend_Controller_Action
 		$this->view->title = "ZRECore";
 		
 		$this->translate = $this->view->translate = $t = $this->getInvokeArg('bootstrap')->getResource('translate');
+		$defaultThemes = $this->getFrontController()->getParam('jqueryUiTheme');
+		$defaultYuiVersion = $this->getFrontController()->getParam('yuiVersion');
+		$defaultJQueryVersion = $this->getFrontController()->getParam('jqueryVersion');
+		$defaultJQueryUiVersion = $this->getFrontController()->getParam('jqueryUiVersion');
+		
+		if (!empty($defaultThemes['module']['admin'])) {
+			$this->view->theme = $defaultThemes['module']['admin'];
+		}
+		
+		if (!empty($defaultYuiVersion)) {$this->view->yuiVersion = $defaultYuiVersion;}
+		if (!empty($defaultJQueryVersion)) {$this->view->jqueryVersion = $defaultJQueryVersion;}
+		if (!empty($defaultJQueryUiVersion)) {$this->view->jqueryUiVersion = $defaultJQueryUiVersion;}
 		
 		if ($this->require_auth == 1)
 		{
