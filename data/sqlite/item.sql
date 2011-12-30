@@ -25,7 +25,6 @@ CREATE TABLE item(
 	is_finite INTEGER DEFAULT 1,
 	is_perishable INTEGER DEFAULT 0,
 	is_tangible INTEGER DEFAULT 1,
-
 	UNIQUE(item_name),
 	UNIQUE(item_sku),
 	

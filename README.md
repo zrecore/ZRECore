@@ -24,6 +24,7 @@ Your `data.sq3` file is especially important. Wherever you decide to keep it, do
 # Installation
 Downloads can be found at https://github.com/aalbino/ZRECore/downloads
 Additionally, you can fork me off of http://github.com/aalbino/ZRECore/ and then check out your own fork onto your local machine using git (read below).
+*The `_install.sql` inserts the 'admin` user, with a temporary password of `password321`*
 
 ## File Setup
 Extract the contents of the ZRECore download archive into /var/www/ZRECore/ (or whatever directory you plan to host these files from)
@@ -39,7 +40,8 @@ For those of you who prefer the bleeding edge of technology, you can just check 
 ## Database
 The .sq3 database file location can be specified in [your installation directory]/application/configs/application.ini under the '; Database' comment
 
-You can use the default sqlite3 database file in [your installation directory]/data/sqlite/data.sq3 ...Feel free to use the sqlite3 client to open the .sq3 file and then use the `.read` command on the install_first_user.sql to create the basic (re)create whatever table you want. Each table is individually wrapped in its own .sql file for your convenience. The `install_first_user.sql` inserts the 'admin` user, with a temporary password of `password321`
+You can use the default sqlite3 database file in [your installation directory]/data/sqlite/data.sq3 ...Feel free to use the sqlite3 client to open the .sq3 file and then use the `.read` command on the `_install.sql` file to restore the database to it's begining state, or use the `.read` command on whatever provided .sql file to (re)create a table. Each table is individually wrapped in its own .sql file for your convenience. 
+
 Then, move or copy data.sq3 into some directory outside your installation and update application.ini accordingly.
 
 *NOTE: You are responsible for setting permissions on the copied/moved data.sq3 file in order to keep it secure, yet accessible by this application.*

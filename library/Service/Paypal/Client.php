@@ -42,8 +42,7 @@ class Service_Paypal_Client extends Zend_Http_Client {
 	 * @return Zend_Http_Response
 	 * @throws Zend_Http_Client_Exception
 	 */
-	function doDirectPayment($amount, $credit_card_type, $credit_card_number, $expiration_month, $expiration_year, $cvv2, $first_name, $last_name, $address1, $address2, $city, $state, $zip, $country, $currency_code, $ip_address, $payment_action = 'Authorization') 
-	{
+	function doDirectPayment($amount, $credit_card_type, $credit_card_number, $expiration_month, $expiration_year, $cvv2, $first_name, $last_name, $address1, $address2, $city, $state, $zip, $country, $currency_code, $ip_address, $payment_action = 'Authorization') {
 		$this->setParameterGet('METHOD', 'DoDirectPayment');
 
 		$expiration_date = str_pad($expiration_month, 2, STR_PAD_LEFT) .
@@ -71,6 +70,88 @@ class Service_Paypal_Client extends Zend_Http_Client {
 		$this->setParameterGet('IPADDRESS', urlencode($ip_address));
 
 		return $this->request(Zend_Http_Client::GET);
+	}
+
+	/**
+	 *
+	 * Calls the 'ECDoExpressCheckout' API call. Requires a token that can
+	 * be obtained using the 'SetExpressCheckout' API call. The payer_id is
+	 * obtained from the 'SetExpressCheckout' or 'GetExpressCheckoutDetails' API call.
+	 *
+	 * @param string $token
+	 * @param string $payer_id
+	 * @param float  $payment_amount
+	 * @param string $currency_code
+	 * @param string $payment_action Can be 'Authorization', 'Sale', or 'Order'
+	 *
+	 * @return Zend_Http_Response
+	 * @throws Zend_Http_Client_Exception
+	 */
+	function ecDoExpressCheckout($token, $payer_id, $payment_amount, $currency_code, $payment_action = 'Sale') {
+		$this->setParameterGet('METHOD', 'DoExpressCheckoutPayment');
+		$this->setParameterGet('AMT', $payment_amount);
+		$this->setParameterGet('TOKEN', $token);
+		$this->setParameterGet('PAYERID', $payer_id);
+		$this->setParameterGet('PAYMENTACTION', $payment_action); // Can be 'Authorization', 'Sale', or 'Order'
+
+		return $this->request(Zend_Http_Client::GET);
+	}
+
+	/**
+	 * Request an authorization token.
+	 *
+	 * @param float $paymentAmount
+	 * @param string $returnURL
+	 * @param string $cancelURL
+	 * @param string $currencyID
+	 * @param string $payment_action Can be 'Authorization', 'Sale', or 'Order'. Default is 'Authorization'
+	 * @return Zend_Http_Response
+	 */
+	function ecSetExpressCheckout($paymentAmount, $returnURL, $cancelURL, $currencyID, $payment_action = 'Authorization') {
+		$this->setParameterGet('METHOD', 'SetExpressCheckout');
+
+		// The paypal PDF says to use this and not AMT, but in practice, 
+		// that doesnt work yet as of the time of this writting...
+		$this->setParameterGet('PAYMENTREQUEST_0_AMT', $paymentAmount);
+		// ...So we will do this for now.
+		//$this->setParameterGet('AMT', $paymentAmount);
+
+		$this->setParameterGet('RETURNURL', $returnURL);
+		$this->setParameterGet('CANCELURL', $cancelURL);
+		$this->setParameterGet('PAYMENTREQUEST_0_PAYMENTACTION', $payment_action); // Can be 'Authorization', 'Sale', or 'Order'
+
+		return $this->request(Zend_Http_Client::GET);
+	}
+
+	/**
+	 * Parse a Name-Value Pair response into an object.
+	 * @param string $response
+	 * @return object Returns an object representation of the response.
+	 */
+	public static function parse($response) {
+
+		$responseArray = explode("&amp;", $response);
+
+		$result = array();
+
+		if (count($responseArray) > 0) {
+			foreach ($responseArray as $i => $value) {
+
+				$keyValuePair = explode("=", $value);
+
+				if (sizeof($keyValuePair) > 1) {
+					$result[$keyValuePair[0]] = urldecode($keyValuePair[1]);
+				}
+			}
+		}
+
+		if (empty($result)) {
+			$result = null;
+		} else {
+			$result = (object) $result;
+		}
+
+		return $result;
 	}
 
 }
