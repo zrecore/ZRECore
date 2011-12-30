@@ -136,6 +136,7 @@ textarea {
 	max-height: 100%;
 	float: left;
 	text-align: center;
+	border-right: dashed 1px #ddd;
 }
 
 .dashboard-widgets .widget-box-quarter {width: 22%;}
