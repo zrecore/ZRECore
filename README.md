@@ -1,4 +1,4 @@
-# ZRECore - The most intuitive approach to e-commerce application development. This application provides a Mobile and E-Commerce application environment, built upon the Zend Framework MVC library.
+# ZRECore - The most intuitive approach to e-commerce application development. This application provides a Mobile and E-Commerce application environment, built upon the Zend Framework MVC library. ZRECore leverages various technologies, including Doctrine 2, Sqlite3, and jQuery in order to provide a powerful, yet intuitive code base any PHP programmer can quickly figure out and extend to suite his or her needs.
 
 This code is provided to you under the terms of the GNU General Public License V3 or higher. It can be found at http://www.gnu.org/copyleft/gpl.html
 Copyrights 2009 The Alex Venture Project http://www.alexventure.com. All rights reserved.
@@ -13,7 +13,7 @@ This installation is made to work on Unix/Linux operating systems. If you're rea
 * Zend Framework 1.10 or higher - See http://code.google.com/p/zend/ if you want to install it via PEAR or http://framework.zend.com if you plan to copy the Zend/ folder directly into the application library/ folder
 * PHP 5.3 or higher with the Standard PHP Library (SPL, usually included by default)
 * SQLight3 or higher (Use your package manager tool such as yast on CentOS/Red Hat or apt-get on Debian based servers. You will need `sqlite` and `php5-sqlite` or higher. Remember to restart Apache after installing. You can also download from http://www.sqlite.org/download.html if you don't use a package manager)
-* Doctrine 2 - The Zend Framework provides the Zend_Db_Table class, but it's not exactly what I need for this project.  I feel the Doctrine 2 library is a much more appropriate tool for the job, thanks mainly to it's object-relational mapper.
+* Doctrine 2 - The Zend Framework provides the Zend_Db_Table class, but it's not exactly what I need for this project.  I feel the Doctrine 2 library is a much more appropriate tool for the job, thanks mainly to it's object-relational mapper. See http://www.doctrine-project.org/ for more information regarding setup and usage.
 
 # Notes
 I was inspired by some of the nicer features found in Wordpress, Joomla, and a few things I did right during the ZRECommerce project. 
