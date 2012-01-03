@@ -13,6 +13,7 @@ This installation is made to work on Unix/Linux operating systems. If you're rea
 * Zend Framework 1.10 or higher - See http://code.google.com/p/zend/ if you want to install it via PEAR or http://framework.zend.com if you plan to copy the Zend/ folder directly into the application library/ folder
 * PHP 5.3 or higher with the Standard PHP Library (SPL, usually included by default)
 * SQLight3 or higher (Use your package manager tool such as yast on CentOS/Red Hat or apt-get on Debian based servers. You will need `sqlite` and `php5-sqlite` or higher. Remember to restart Apache after installing. You can also download from http://www.sqlite.org/download.html if you don't use a package manager)
+* Doctrine 2 - The Zend Framework provides the Zend_Db_Table class, but it's not exactly what I need for this project.  I feel the Doctrine 2 library is a much more appropriate tool for the job, thanks mainly to it's object-relational mapper.
 
 # Notes
 I was inspired by some of the nicer features found in Wordpress, Joomla, and a few things I did right during the ZRECommerce project. 
@@ -22,7 +23,7 @@ This application uses the phpass library (public domain). See http://www.openwal
 This application uses the jQuery and jQuery UI library + css. Copyrights 2010 The jQuery Project and the jQuery UI Team. See http://jquery.org/
 I did not include jQuery UI's "Hot Sneaks", "Dot Luv", or "Swanky Purse" themes because they have CSS breakage issues not present in the other themes.
 
-The Zend Framework, phpass library, jQuery library, jQuery UI library, PayPal API, and other third-party files are copyright their respective owners. Any third-party files distributed herein is distributed under the terms of each third-party file license. This application uses the phpass library, hence, you are responsible for following encryption/hashing laws in your own country if applicable.
+The Zend Framework, phpass library, jQuery library, jQuery UI library, PayPal API, Doctrine, and other third-party files are copyright their respective owners. Any third-party files distributed herein is distributed under the terms of each third-party file license. This application uses the phpass library, hence, you are responsible for following encryption/hashing laws in your own country if applicable.
 
 # Backing up
 Always back up. Just copy your ZRECore installation directory somewhere safe every so often (or commit to your own github fork). That way, if you ever need to undo a boo-boo, you'll be fine.
