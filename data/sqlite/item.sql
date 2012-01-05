@@ -25,6 +25,9 @@ CREATE TABLE item(
 	is_finite INTEGER DEFAULT 1,
 	is_perishable INTEGER DEFAULT 0,
 	is_tangible INTEGER DEFAULT 1,
+	item_timestamp_added INTEGER NOT NULL, 
+	item_timestamp_modified INTEGER DEFAULT NULL,
+	item_timestamp_deactivated INTEGER DEFAULT NULL,
 	UNIQUE(item_name),
 	UNIQUE(item_sku),
 	

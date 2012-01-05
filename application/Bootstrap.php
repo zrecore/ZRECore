@@ -2,6 +2,14 @@
 
 class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 {
+	public function _initAutloader()
+	{
+		$autoloader = Zend_Loader_Autoloader::getInstance();
+		
+		require_once 'Doctrine/Common/ClassLoader.php';
+		$doctrineAutoloader = array(new \Doctrine\Common\ClassLoader, 'loadClass');
+		$autoloader->pushAutoloader($doctrineAutoloader, 'Doctrine');
+	}
 	public function _initRegistry()
 	{
 		$registry = Zend_Registry::getInstance();

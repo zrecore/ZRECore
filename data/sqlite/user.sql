@@ -7,7 +7,7 @@ CREATE TABLE user(
 	last_name varchar(255), 
 	email varchar(255), 
 	handle varchar(255), 
-	is_active INTEGER, 
+	is_active INTEGER DEFAULT 0, 
 	user_timestamp_added INTEGER NOT NULL, 
 	user_timestamp_modified INTEGER DEFAULT NULL, 
 	user_timestamp_deactivated INTEGER DEFAULT NULL,
