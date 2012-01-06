@@ -14,7 +14,12 @@ class Admin_Overview extends Zend_View_Helper_Abstract
 		$auth = Zend_Auth::getInstance();
 		$user = $auth->getIdentity();
 		
-		$html = $t->_('Welcome, ') . $user->first_name . ' ' . $user->last_name . '.';
+		if ($user instanceOf Auth\User)
+		{
+			$html = $t->_('Welcome') . ', ' . $user->getFirstName() . ' ' . $user->getLastName() . '.';
+		} else {
+			$html = $t->_('Welcome') . ', ' . $t->_('User') . '.';
+		}
 		return $html;
 	}
 	public function overview()

@@ -12,6 +12,7 @@ class Auth_Adapter_Phpass implements Zend_Auth_Adapter_Interface
 	}
 	
 	public function authenticate() {
+		$em = Zend_Registry::get('Entitymanager');
 		
 		$code = Zend_Auth_Result::FAILURE;
 		$identity = null;
@@ -20,25 +21,25 @@ class Auth_Adapter_Phpass implements Zend_Auth_Adapter_Interface
 		$username = $this->_username;
 		$password = $this->_password;
 		
-		$model = new Application_Model_User;
+		$model = $em->getRepository('Auth\User');
 		
-		$exists = $model->listAll(array('handle' => $username), array('limit' => 1));
+		$exists = $model->findOneByHandle($username);
 		
-		if (!empty($exists) && $exists->count() > 0)
+		if (!empty($exists) && $exists instanceof Auth\User)
 		{
-			$record = $exists->current();
+			$record = $exists;
 			$code = Zend_Auth_Result::FAILURE_IDENTITY_NOT_FOUND;
 			
 			$phpass = new PasswordHash(8, false);
-			$is_valid = $phpass->CheckPassword($password, $record->password_hash);
+			
+			$is_valid = $phpass->CheckPassword($password, $record->getPasswordHash());
 			
 			if ($is_valid) {
 				$code = Zend_Auth_Result::SUCCESS;
 				$identity = $record;
 			}
-			
 		}
-		
+
 		$authResult = new Zend_Auth_Result($code, $identity, $messages);
 		return $authResult;
 	}
