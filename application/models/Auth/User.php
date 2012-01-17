@@ -35,6 +35,16 @@ class User
 	private $password_hash;
 	/** @Column(type="integer") */
 	private $password_is_temporary;
+	/**
+	 * @OneToMany(targetEntity="UserAcl",mappedBy="User")
+	 * @JoinColumn(name="user_id", referencedColumnName="user_id_fk")
+	 */
+	private $userAcl;
+	/**
+	 * @OneToOne(targetEntity="UserProfile")
+	 * @JoinColumn(name="user_id", referencedColumnName="user_id_fk")
+	 */
+	private $userProfile;
 	
 	public function __construct()
 	{
@@ -59,6 +69,8 @@ class User
 	public function getUserTimestampDeactivated() { return $this->user_timestamp_deactivated; }
 	public function getPasswordHash() { return $this->password_hash; }
 	public function getPasswordIsTemporary() { return $this->password_is_temporary; }
+	public function getUserAcl()	{ return $this->userAcl; }
+	public function getUserProfile() { return $this->userProfile; }
 	
 	public function setAclRole($value)	{ $this->aclRole = $value; }
 	public function setFirstName($value)	{ $this->first_name = $value; }
@@ -71,4 +83,6 @@ class User
 	public function setUserTimestampDeactivated($value) { $this->user_timestamp_deactivated = $value; }
 	public function setPasswordHash($value) { $this->password_hash = $value; }
 	public function setPasswordIsTemporary($value) { $this->password_is_temporary = $value; }
+	public function setUserAcl($value) { $this->userAcl = $value; }
+	public function setUserProfile($value) { $this->userProfile = $value; }
 }
