@@ -6,6 +6,7 @@ BEGIN TRANSACTION;
 .read comment.sql
 .read coupon.sql
 .read currency.sql
+.read folder.sql
 .read item.sql
 .read itemCoupon.sql
 .read itemProperty.sql

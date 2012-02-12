@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Commerce\Item" table="item">
+    <change-tracking-policy>DEFERRED_IMPLICIT</change-tracking-policy>
+    <id name="item_id" type="integer" column="item_id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="item_name" type="string" column="item_name" length="255" precision="0" scale="0"/>
+    <field name="item_slug" type="string" column="item_slug" length="255" precision="0" scale="0"/>
+    <field name="item_sku" type="string" column="item_sku" length="255" precision="0" scale="0"/>
+    <field name="item_description" type="text" column="item_description" precision="0" scale="0"/>
+    <field name="price" type="decimal" column="price" precision="0" scale="0"/>
+    <field name="availability_date" type="integer" column="availability_date" precision="0" scale="0"/>
+    <field name="finite_amount_available" type="integer" column="finite_amount_available" precision="0" scale="0"/>
+    <field name="finite_unit_of_measure" type="string" column="finite_unit_of_measure" length="32" precision="0" scale="0"/>
+    <field name="max_purchase_amount" type="integer" column="max_purchase_amount" precision="0" scale="0"/>
+    <field name="metric_unit_of_measure" type="string" column="metric_unit_of_measure" length="32" precision="0" scale="0"/>
+    <field name="metric_width" type="decimal" column="metric_width" precision="0" scale="0"/>
+    <field name="metric_height" type="decimal" column="metric_height" precision="0" scale="0"/>
+    <field name="metric_depth" type="decimal" column="metric_depth" precision="0" scale="0"/>
+    <field name="min_purchase_amount" type="integer" column="min_purchase_amount" precision="0" scale="0"/>
+    <field name="perishable_date" type="integer" column="perishable_date" precision="0" scale="0"/>
+    <field name="weight" type="decimal" column="weight" precision="0" scale="0"/>
+    <field name="weight_unit_of_measure" type="string" column="weight_unit_of_measure" length="32" precision="0" scale="0"/>
+    <field name="is_available" type="integer" column="is_available" precision="0" scale="0"/>
+    <field name="is_finite" type="integer" column="is_finite" precision="0" scale="0"/>
+    <field name="is_perishable" type="integer" column="is_perishable" precision="0" scale="0"/>
+    <field name="is_tangible" type="integer" column="is_tangible" precision="0" scale="0"/>
+    <field name="item_timestamp_added" type="integer" column="item_timestamp_added" precision="0" scale="0"/>
+    <field name="item_timestamp_modified" type="integer" column="item_timestamp_modified" precision="0" scale="0"/>
+    <field name="item_timestamp_deactivated" type="integer" column="item_timestamp_deactivated" precision="0" scale="0"/>
+    <one-to-one field="currency" target-entity="Commerce\Currency" orphan-removal="">
+      <join-columns>
+        <join-column name="currency_id_fk" referenced-column-name="currency_id" nullable="1"/>
+      </join-columns>
+    </one-to-one>
+    <one-to-one field="category" target-entity="Commerce\Category" orphan-removal="">
+      <join-columns>
+        <join-column name="category_id_fk" referenced-column-name="category_id" nullable="1"/>
+      </join-columns>
+    </one-to-one>
+    <lifecycle-callbacks/>
+  </entity>
+</doctrine-mapping>

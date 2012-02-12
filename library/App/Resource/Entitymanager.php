@@ -37,10 +37,15 @@ class App_Resource_Entitymanager extends Zend_Application_Resource_ResourceAbstr
 		$config->setMetadataCacheImpl($cache);
 		
 		$autoloader = Zend_Loader_Autoloader::getInstance();
+		$modelDir = !empty($options['modelDir']) ? $options['modelDir'] : APPLICATION_PATH . '/models';
 		
-		$classLoaderAuth = new \Doctrine\Common\ClassLoader('Auth', !empty($options['modelDir']) ? $options['modelDir'] : APPLICATION_PATH . '/models', 'loadClass');
+		$classLoaderAuth = new \Doctrine\Common\ClassLoader('Auth', $modelDir, 'loadClass');
+		$classLoaderCommerce = new \Doctrine\Common\ClassLoader('Commerce', $modelDir, 'loadClass');
+		$classLoaderContent = new \Doctrine\Common\ClassLoader('Content', $modelDir, 'loadClass');
 		
 		$autoloader->pushAutoloader(array($classLoaderAuth, 'loadClass'), 'Auth');
+		$autoloader->pushAutoloader(array($classLoaderCommerce, 'loadClass'), 'Commerce');
+		$autoloader->pushAutoloader(array($classLoaderContent, 'loadClass'), 'Content');
 		
 		$driverImpl = $config->newDefaultAnnotationDriver(!empty($options['modelDir']) ? $options['modelDir'] : APPLICATION_PATH . '/models');
 		$config->setMetadataDriverImpl($driverImpl);

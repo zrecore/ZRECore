@@ -10,11 +10,12 @@
 			$this->headLink()->appendStylesheet( '/style/layout-content-left.css' );
 			$this->headLink()->appendStylesheet( '/style/admin.css' );
 			
-			$this->headScript()->prependFile( '/script/jquery-ui-' . (!empty($this->jqueryUiVersion) ? $this->jqueryUiVersion : '1.8.16') . '/jquery-ui.min.js' );
-			$this->headScript()->prependFile( '/script/jquery-' . (!empty($this->jqueryVersion) ? $this->jqueryVersion : '1.6.2') . '/jquery-min.js' );
-			
+			$this->headScript()->appendFile( '/script/jquery-' . (!empty($this->jqueryVersion) ? $this->jqueryVersion : '1.6.2') . '/jquery-validation/jquery.validate.min.js' );
 			$this->headScript()->appendFile( '/script/jquery-' . (!empty($this->jqueryVersion) ? $this->jqueryVersion : '1.6.2') . '/jquery.flyout.js' );
 			$this->headScript()->appendFile( '/script/admin.js' );
+			
+			$this->headScript()->prependFile( '/script/jquery-ui-' . (!empty($this->jqueryUiVersion) ? $this->jqueryUiVersion : '1.8.16') . '/jquery-ui.min.js' );
+			$this->headScript()->prependFile( '/script/jquery-' . (!empty($this->jqueryVersion) ? $this->jqueryVersion : '1.6.2') . '/jquery-min.js' );
 		?>
 		<?php echo $this->headMeta() . "\n"; ?>
 		<?php echo $this->headTitle() . "\n"; ?>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Commerce\Category" table="category">
+    <change-tracking-policy>DEFERRED_IMPLICIT</change-tracking-policy>
+    <id name="category_id" type="integer" column="category_id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="category_name" type="string" column="category_name" length="255" precision="0" scale="0"/>
+    <field name="category_slug" type="string" column="category_slug" length="255" precision="0" scale="0"/>
+    <one-to-one field="categoryParent" target-entity="Commerce\Category" orphan-removal="">
+      <join-columns>
+        <join-column name="category_parent_id" referenced-column-name="category_id" nullable="1"/>
+      </join-columns>
+    </one-to-one>
+    <lifecycle-callbacks/>
+  </entity>
+</doctrine-mapping>

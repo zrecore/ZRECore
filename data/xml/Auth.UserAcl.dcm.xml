@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Auth\UserAcl" table="userAcl">
+    <change-tracking-policy>DEFERRED_IMPLICIT</change-tracking-policy>
+    <id name="user_id_fk" type="integer" column="user_id_fk"/>
+    <one-to-one field="resource" target-entity="Auth\AclResource" orphan-removal="">
+      <join-columns>
+        <join-column name="resource_id_fk" referenced-column-name="acl_resource_id" nullable="1"/>
+      </join-columns>
+    </one-to-one>
+    <one-to-one field="permission" target-entity="Auth\AclPermission" orphan-removal="">
+      <join-columns>
+        <join-column name="permission_id_fk" referenced-column-name="acl_permission_id" nullable="1"/>
+      </join-columns>
+    </one-to-one>
+    <lifecycle-callbacks/>
+  </entity>
+</doctrine-mapping>

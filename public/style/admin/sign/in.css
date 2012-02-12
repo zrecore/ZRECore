@@ -1,0 +1,15 @@
+/* 
+    Document   : in
+    Created on : Jan 17, 2012, 9:49:41 AM
+    Author     : aalbino
+    Description:
+        Stylize the /admin/sign/in/ view
+*/
+#dlgSignIn { width: 100%; padding: 5%; }
+#dlgSignIn .sign-in-form { margin: 0.4em; }
+#dlgSignIn .sign-in-form label { font-size: 1.4em; font-weight: bold;}
+#dlgSignIn .sign-in-form label.error { font-size: 1.0em; font-weight: normal; font-style: italic;}
+#dlgSignIn .sign-in-form input { font-size: 1.2em; margin: 0.2em; border: solid 1px #aaa;}
+#dlgSignIn .sign-in-form #username, #dlgSignIn .sign-in-form #password { padding: 0.2em; font-size: 1.8em; width: 90%; }
+#dlgSignIn .sign-in-form #reply { padding: 0.4em; }
+#dlgSignIn .sign-in-form #reply .ui-icon {float: left; margin-right: 0.4em;}

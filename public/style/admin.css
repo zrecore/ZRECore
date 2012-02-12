@@ -41,6 +41,12 @@ textarea {
 	
 }
 
+.no-bullet-ul {
+	list-style-type: none;
+}
+
+.no-bullet-ul li {list-style-type: none;}
+
 #main .title
 {
 	margin: 4px 12px 14px 14px;
@@ -179,4 +185,4 @@ textarea {
 
 .quick-form-unordered-list {width: 94%;}
 
-.sign-in-form input { font-size: 1.8em; padding: 0.2em; border: solid 1px #aaa;}
+label.error {font-weight: normal !important; font-size: 1.0em; font-style: italic; clear: both !important; width: 100%;}

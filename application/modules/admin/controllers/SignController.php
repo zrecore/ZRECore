@@ -30,6 +30,8 @@ class Admin_SignController extends Controller_Module_Admin
 			
 			if ($auth->hasIdentity()) {
 				$this->_redirect('/admin/');
+			} else {
+				$this->view->message = $t->_('Access Denied');
 			}
 		}
 	}

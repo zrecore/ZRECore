@@ -27,13 +27,10 @@ class Admin_Overview extends Zend_View_Helper_Abstract
 		$view = $this->view;
 		$t = $view->translate;
 		
-		// Make sure we have loaded the necessary files first.
-		$view->headScript()->appendFile( '/script/Highcharts-2.1.9/highcharts.src.js' );
-		
 		// Generate the HTML
 		$output = 
 		'<div class="widget-box-item">' . 
-			'<div class="widget-box-item-header">Overview</div>' . 
+			'<div class="widget-box-item-header">' . $t->_('Overview') . '</div>' . 
 			'<div class="widget-box-item-content" style="display: block;">' . 
 				'<ul class="list-item" style="width: 48%; display: inline; margin: 0; padding: 0; float: left;">' . 
 					'<li><span class="list-item-label">' . $t->_('Orders Complete') . ':</span><span class="list-item-content">0</span></li>' . 

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Auth\User" table="user">
+    <change-tracking-policy>DEFERRED_IMPLICIT</change-tracking-policy>
+    <id name="user_id" type="integer" column="user_id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="first_name" type="string" column="first_name" length="255" precision="0" scale="0"/>
+    <field name="last_name" type="string" column="last_name" length="255" precision="0" scale="0"/>
+    <field name="email" type="string" column="email" length="255" precision="0" scale="0"/>
+    <field name="handle" type="string" column="handle" precision="0" scale="0"/>
+    <field name="is_active" type="integer" column="is_active" precision="0" scale="0"/>
+    <field name="user_timestamp_added" type="integer" column="user_timestamp_added" precision="0" scale="0"/>
+    <field name="user_timestamp_modified" type="integer" column="user_timestamp_modified" precision="0" scale="0"/>
+    <field name="user_timestamp_deactivated" type="integer" column="user_timestamp_deactivated" precision="0" scale="0"/>
+    <field name="password_hash" type="string" column="password_hash" length="60" precision="0" scale="0"/>
+    <field name="password_is_temporary" type="integer" column="password_is_temporary" precision="0" scale="0"/>
+    <one-to-one field="aclRole" target-entity="Auth\AclRole" orphan-removal="">
+      <join-columns>
+        <join-column name="acl_role_id_fk" referenced-column-name="acl_role_id" nullable="1"/>
+      </join-columns>
+    </one-to-one>
+    <one-to-many field="userAcl" target-entity="Auth\UserAcl" mapped-by="User" orphan-removal=""/>
+    <one-to-one field="userProfile" target-entity="Auth\UserProfile" orphan-removal="">
+      <join-columns>
+        <join-column name="user_id" referenced-column-name="user_id_fk" nullable="1"/>
+      </join-columns>
+    </one-to-one>
+    <lifecycle-callbacks/>
+  </entity>
+</doctrine-mapping>

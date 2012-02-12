@@ -10,10 +10,12 @@
 			$this->headLink()->appendStylesheet( '/style/layout-content-left.css' );
 			$this->headLink()->appendStylesheet( '/style/admin.css' );
 			
-			$this->headScript()->appendFile( '/script/jquery-' . (!empty($this->jqueryVersion) ? $this->jqueryVersion : '1.6.2') . '/jquery-min.js' );
-			$this->headScript()->appendFile( '/script/jquery-ui-' . (!empty($this->jqueryUiVersion) ? $this->jqueryUiVersion : '1.8.16') . '/jquery-ui.min.js' );
 			$this->headScript()->appendFile( '/script/jquery-' . (!empty($this->jqueryVersion) ? $this->jqueryVersion : '1.6.2') . '/jquery.flyout.js' );
+			$this->headScript()->appendFile( '/script/jquery-' . (!empty($this->jqueryVersion) ? $this->jqueryVersion : '1.6.2') . '/jquery-validation/jquery.validate.min.js' );
 			$this->headScript()->appendFile( '/script/admin.js' );
+			
+			$this->headScript()->prependFile( '/script/jquery-ui-' . (!empty($this->jqueryUiVersion) ? $this->jqueryUiVersion : '1.8.16') . '/jquery-ui.min.js' );
+			$this->headScript()->prependFile( '/script/jquery-' . (!empty($this->jqueryVersion) ? $this->jqueryVersion : '1.6.2') . '/jquery-min.js' );
 		?>
 		<?php echo $this->headMeta() . "\n"; ?>
 		<?php echo $this->headTitle() . "\n"; ?>
@@ -21,22 +23,17 @@
 		<?php echo $this->headLink() . "\n"; ?>
 		<?php echo $this->headStyle() . "\n"; ?>
 	</head>
-	<body class="yui3-skin-night">
-		
-		<div class="yui3-g" id="layout">
-			<div class="yui3-u" id="main">
-				<div class="title-container">
-					<h1 class="title"><?php echo $t->_($this->title);?></h1>
-				</div>
-				<div class="content-container">
-				<?php echo $this->layout()->content; ?>
-				</div>
-			</div>
+	<body>
+		<div class="title-container">
+			<h1 class="title"><?php echo $t->_($this->title);?></h1>
 		</div>
+		<div class="content-container">
+		<?php echo $this->layout()->content; ?>
+		</div>
+		<?php if (!empty($this->message)): ?>
+		<div id="message" class="ui-helper-hidden">
+			<?php echo $this->message; ?>
+		</div>
+		<?php endif; ?>
 	</body>
-	<?php if (!empty($this->message)): ?>
-	<div id="message" class="ui-helper-hidden">
-		<?php echo $this->message; ?>
-	</div>
-	<?php endif; ?>
 </html>

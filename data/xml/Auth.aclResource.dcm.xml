@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Auth\aclResource" table="aclResource">
+    <change-tracking-policy>DEFERRED_IMPLICIT</change-tracking-policy>
+    <id name="acl_resource_id" type="integer" column="acl_resource_id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="acl_resource_name" type="string" column="acl_resource_name" length="255" precision="0" scale="0"/>
+    <field name="acl_resource_is_active" type="integer" column="acl_resource_is_active" precision="0" scale="0"/>
+    <field name="acl_resource_timestamp_added" type="integer" column="acl_resource_timestamp_added" precision="0" scale="0"/>
+    <field name="acl_resource_timestamp_modified" type="integer" column="acl_resource_timestamp_modified" precision="0" scale="0"/>
+    <field name="acl_resource_timestamp_deactivated" type="integer" column="acl_resource_timestamp_deactivated" precision="0" scale="0"/>
+    <lifecycle-callbacks/>
+  </entity>
+</doctrine-mapping>

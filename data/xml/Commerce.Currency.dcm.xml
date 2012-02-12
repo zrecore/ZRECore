@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Commerce\Currency" table="currency">
+    <change-tracking-policy>DEFERRED_IMPLICIT</change-tracking-policy>
+    <id name="currency_id" type="integer" column="currency_id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="currency_code" type="string" column="currency_code" length="3" precision="0" scale="0"/>
+    <field name="currency_name" type="string" column="currency_name" length="255" precision="0" scale="0"/>
+    <field name="currency_is_default" type="integer" column="currency_is_default" precision="0" scale="0"/>
+    <lifecycle-callbacks/>
+  </entity>
+</doctrine-mapping>
