@@ -15,6 +15,7 @@ BEGIN TRANSACTION;
 .read orderCoupon.sql
 .read orderItem.sql
 .read orderService.sql
+.read orderStatusHistory.sql
 .read orderSubscription.sql
 .read packageLevel.sql
 .read page.sql
@@ -26,6 +27,7 @@ BEGIN TRANSACTION;
 .read service.sql
 .read serviceCoupon.sql
 .read servicePackageLevel.sql
+.read status.sql
 .read subscription.sql
 .read subscriptionCoupon.sql
 .read subscriptionPackageLevel.sql

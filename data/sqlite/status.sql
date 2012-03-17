@@ -1,0 +1,8 @@
+DROP TABLE IF EXISTS status;
+
+CREATE TABLE status(
+	status_id INTEGER PRIMARY KEY AUTOINCREMENT,
+	status_value VARCHAR(255) NOT NULL,
+
+	UNIQUE(status_value)
+);
