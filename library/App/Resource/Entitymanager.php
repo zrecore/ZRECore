@@ -9,8 +9,8 @@ class App_Resource_Entitymanager extends Zend_Application_Resource_ResourceAbstr
 			'driver' => 'pdo_sqlite',
 			'path' => null
 		),
-		'modelDir' => '/models',
-		'proxyDir' => '/proxies',
+		'modelDir' => '',
+		'proxyDir' => '',
 		'proxyNamespace' => 'Proxies',
 		'autoGenerateProxyClasses' => true
 	);
@@ -36,7 +36,7 @@ class App_Resource_Entitymanager extends Zend_Application_Resource_ResourceAbstr
 		$config = new \Doctrine\ORM\Configuration;
 		$config->setMetadataCacheImpl($cache);
 		
-		$autoloader = Zend_Loader_Autoloader::getInstance();
+		$autoloader = \Zend_Loader_Autoloader::getInstance();
 		$modelDir = !empty($options['modelDir']) ? $options['modelDir'] : APPLICATION_PATH . '/models';
 		
 		$classLoaderAuth = new \Doctrine\Common\ClassLoader('Auth', $modelDir, 'loadClass');
@@ -67,7 +67,8 @@ class App_Resource_Entitymanager extends Zend_Application_Resource_ResourceAbstr
 		);
 		
 		$em = \Doctrine\ORM\EntityManager::create($options['connection'], $config);
-		Zend_Registry::set('Entitymanager', $em);
+		\Zend_Registry::set('Entitymanager', $em);
+		
 		return $em;
 	}
 

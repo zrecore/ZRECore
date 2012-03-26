@@ -18,9 +18,10 @@ class OrderStatusHistory
 	private $change_date;
 	
 	public function getOrderStatusId() { return $this->order_status_id; }
-	public function getStatusId() { return $this->status_id; }
+	public function getStatus() { return $this->status; }
 	public function getChangeDate() { return $this->change_date; }
 	
 	public function setOrderStatusId($value) { $this->order_status_id = $value; }
-	public function setStatus($value) {}
+	public function setStatus($value) { $this->status = $value; }
+	public function setChangeDate($value) { $this->change_date = $value; }
 }
