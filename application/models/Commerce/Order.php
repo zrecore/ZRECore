@@ -9,31 +9,31 @@ class Order
 {
 	/** @Id @Column(type="integer") @GeneratedValue */
 	private $order_id;
-	/** Column(type="float") */
+	/** @Column(type="float") */
 	private $order_amount_total;
-	/** Column(type="int") */
+	/** @Column(type="int") */
 	private $order_date;
-	/** Column(type="int") */
+	/** @Column(type="int") */
 	private $order_modified_date;
-	/** Column(type="string", length=15) */
+	/** @Column(type="string", length=15) */
 	private $order_ip;
-	/** Column(type="string",length=255) */
+	/** @Column(type="string",length=255) */
 	private $order_email;
-	/** Column(type="string",length=255) */
+	/** @Column(type="string",length=255) */
 	private $order_address1;
-	/** Column(type="string",length=255) */
+	/** @Column(type="string",length=255) */
 	private $order_address2;
-	/** Column(type="string",length=255) */
+	/** @Column(type="string",length=255) */
 	private $order_city;
-	/** Column(type="string",length=255) */
+	/** @Column(type="string",length=255) */
 	private $order_state_province;
-	/** Column(type="string",length=16) */
+	/** @Column(type="string",length=16) */
 	private $order_zip_code;
-	/** Column(type="string",length=32) */
+	/** @Column(type="string",length=32) */
 	private $order_phone1;
-	/** Column(type="string",length=32) */
+	/** @Column(type="string",length=32) */
 	private $order_phone2;
-	/** Column(type="text") */
+	/** @Column(type="text") */
 	private $order_notes;
 	
 	/**

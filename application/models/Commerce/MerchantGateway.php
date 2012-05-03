@@ -7,11 +7,11 @@ namespace Commerce;
  */
 class MerchantGateway
 {
-	/** Column(type="int") */
+	/** @Column(type="int") */
 	private $merchant_gateway_id;
-	/** Column(type="string",length="255") */
+	/** @Column(type="string",length="255") */
 	private $merchant_gateway_name;
-	/** Column(type="string",length="255") */
+	/** @Column(type="string",length="255") */
 	private $merchant_gateway_class;
 	
 	public function getMerchantGatewayId() { return $this->merchant_gateway_id; }

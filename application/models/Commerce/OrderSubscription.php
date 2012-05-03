@@ -16,11 +16,11 @@ class OrderSubscription
 	 * @JoinColumn(name="subscription_id_fk", referencedColumnName="subscription_id")
 	 */
 	private $subscription; 
-	/** Column(type="decimal") */
+	/** @Column(type="decimal") */
 	private $order_subscription_price; 
-	/** Column(type="int") */
+	/** @Column(type="int") */
 	private $order_subscription_date_start; 
-	/** Column(type="int") */
+	/** @Column(type="int") */
 	private $order_subscription_date_end; 
 	
 	public function getOrder() { return $this->order; }
