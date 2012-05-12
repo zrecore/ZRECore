@@ -12,11 +12,11 @@ class Coupon
 	
 	/** @Column(type="string",length=255) */
 	private $coupon_code;
-	/** @Column(type="int") */
+	/** @Column(type="integer") */
 	private $coupon_start_date;
-	/** @Column(type="int",nullable=true) */
+	/** @Column(type="integer",nullable=true) */
 	private $coupon_end_date;
-	/** @Column(type="int")*/
+	/** @Column(type="integer")*/
 	private $coupon_is_active;
 	/** @Column(type="float")*/
 	private $coupon_item_price;

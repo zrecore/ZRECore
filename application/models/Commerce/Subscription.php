@@ -7,19 +7,32 @@ namespace Commerce;
  */
 class Subscription
 {
+        /** @Id @Column(type="integer") @GeneratedValue */
 	private $subscription_id;
-        
+        /**
+	 * @OneToOne(targetEntity="Commerce\Currency") 
+	 * @JoinColumn(name="currency_id_fk", referencedColumnName="currency_id")
+	 */
         private $subscriptionCurrency;
-        
+        /** @Column(type="string",length=15) */
         private $subscription_name;
+        /** @Column(type="string") */
         private $subscription_description;
+        /** @Column(type="string") */
         private $subscription_terms;
+        /** @Column(type="float") */
         private $subscription_signup_fee;
+        /** @Column(type="integer") */
         private $subscription_is_recurring;
+        /** @Column(type="integer") */
         private $subscription_recurs_every_amount;
+        /** @Column(type="string",length=32) */
         private $subscription_recurs_every_unit;
+        /** @Column(type="integer") */
         private $subscription_recurs_max_amount;
+        /** @Column(type="float") */
         private $subscription_price_per_unit;
+        /** @Column(type="integer") */
         private $subscription_is_available;
         
         public function getSubscriptionId() { return $this->subscription_id; }

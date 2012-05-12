@@ -7,7 +7,7 @@ namespace Commerce;
  */
 class MerchantGateway
 {
-	/** @Column(type="int") */
+	/** @Column(type="integer") */
 	private $merchant_gateway_id;
 	/** @Column(type="string",length="255") */
 	private $merchant_gateway_name;

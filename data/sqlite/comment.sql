@@ -5,7 +5,7 @@ CREATE TABLE comment(
 	comment_user_id_fk INTEGER NOT NULL,
 	comment_is_active INTEGER DEFAULT 0,
 	comment_is_spam INTEGER DEFAULT 0,
-	comment_text TEXT NOT NULL,
+	comment_text VARCHAR(160) NOT NULL,
 	comment_timestamp_added INTEGER NOT NULL, 
 	comment_timestamp_modified INTEGER DEFAULT NULL, 
 	comment_timestamp_deactivated INTEGER DEFAULT NULL,

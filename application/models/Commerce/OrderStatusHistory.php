@@ -7,14 +7,14 @@ namespace Commerce;
  */
 class OrderStatusHistory
 {
-	/** Column(type="int") */
+	/** Column(type="integer") */
 	private $order_status_id;
 	/**
 	 * @OneToOne(targetEntity="Status") 
 	 * @JoinColumn(name="status_id_fk", referencedColumnName="status_id")
 	 */
 	private $status;
-	/** Column(type="int") */
+	/** Column(type="integer") */
 	private $change_date;
 	
 	public function getOrderStatusId() { return $this->order_status_id; }

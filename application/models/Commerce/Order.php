@@ -11,11 +11,11 @@ class Order
 	private $order_id;
 	/** @Column(type="float") */
 	private $order_amount_total;
-	/** @Column(type="int") */
+	/** @Column(type="integer") */
 	private $order_date;
-	/** @Column(type="int") */
+	/** @Column(type="integer") */
 	private $order_modified_date;
-	/** @Column(type="string", length=15) */
+	/** @Column(type="string",length=15) */
 	private $order_ip;
 	/** @Column(type="string",length=255) */
 	private $order_email;

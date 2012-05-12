@@ -18,9 +18,9 @@ class OrderSubscription
 	private $subscription; 
 	/** @Column(type="decimal") */
 	private $order_subscription_price; 
-	/** @Column(type="int") */
+	/** @Column(type="integer") */
 	private $order_subscription_date_start; 
-	/** @Column(type="int") */
+	/** @Column(type="integer") */
 	private $order_subscription_date_end; 
 	
 	public function getOrder() { return $this->order; }

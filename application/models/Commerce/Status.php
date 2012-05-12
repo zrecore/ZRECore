@@ -7,7 +7,7 @@ namespace Commerce;
  */
 class Status
 {
-	/** @Column(type="int") */
+	/** @Column(type="integer") @GeneratedValue */
 	private $status_id;
 	/** @Column(type="string",length=255) */
 	private $status_value;
