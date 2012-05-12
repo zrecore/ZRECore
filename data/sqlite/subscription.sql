@@ -14,7 +14,6 @@ CREATE TABLE subscription(
 	subscription_recurs_every_unit VARCHAR(32) DEFAULT NULL,
 	subscription_recurs_max_amount INTEGER DEFAULT NULL,
 	subscription_price_per_unit FLOAT NOT NULL,
-	subscription_requires_subscription INTEGER DEFAULT 0,
 	subscription_is_available INTEGER DEFAULT 0,
 
 	UNIQUE(subscription_name),
@@ -30,5 +29,4 @@ CREATE INDEX idx_subscription_recurs_every_amount ON subscription(subscription_r
 CREATE INDEX idx_subscription_recurs_every_unit ON subscription(subscription_recurs_every_unit);
 CREATE INDEX idx_subscription_recurs_max_amount ON subscription(subscription_recurs_max_amount);
 CREATE INDEX idx_subscription_price_per_unit ON subscription(subscription_price_per_unit);
-CREATE INDEX idx_subscription_requires_subscription ON subscription(subscription_requires_subscription);
 CREATE INDEX idx_subscription_is_available ON subscription(subscription_is_available);
