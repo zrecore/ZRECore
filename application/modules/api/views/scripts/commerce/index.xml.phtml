@@ -1,0 +1,16 @@
+<?php
+
+$doc = new DOMDocument();
+$doc->formatOutput = true;
+$root_element = $doc->createElement("response");
+$doc->appendChild($root_element);
+ 
+$statusElement = $doc->createElement("success");
+$statusElement->appendChild($doc->createTextNode($this->success));
+$root_element->appendChild($statusElement);
+ 
+$versionElement = $doc->createElement("version");
+$versionElement->appendChild($doc->createTextNode($this->version));
+$root_element->appendChild($versionElement);
+ 
+print $doc->saveXML();
