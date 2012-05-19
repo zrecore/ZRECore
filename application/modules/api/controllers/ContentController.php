@@ -2,8 +2,6 @@
 
 class Api_ContentController extends Zend_Rest_Controller {
 
-	private $_version = '1.0';
-
 	/**
 	 * @link http://en.wikipedia.org/wiki/Representational_State_Transfer 
 	 * @link http://www.codeinchaos.com/post/3107629294/restful-services-with-zend-framework-part-1
@@ -33,11 +31,53 @@ class Api_ContentController extends Zend_Rest_Controller {
 			$this->_forward( strtolower($method) );
 		}
 	}
+	
+	private function checkAuthentication()
+	{
+		$action = $this->_getParam('action');
+		$nonPrivilegedActions = array('index','get');
+		
+		// @todo Hook into ACL instead.
+		$require_auth = !in_array($action, $nonPrivilegedActions);
+		
+		if ($require_auth == true)
+		{
+			$auth = Zend_Auth::getInstance();
+			
+			if (!$auth->hasIdentity())
+			{
+				// Access Denied;
+				$this->_forward(
+					'access-denied', 
+					'authenticate', 
+					'api', 
+					array(
+						'format' => $this->_getParam('format')
+					)
+				);
+			}
+		}
+	}
 
 	public function indexAction() {
 		
 		// Respond with a list
 		$this->view->message = "List of resources.";
+		
+		$offset = intval($this->_getParam('offset', 0));
+		$count = intval($this->_getParam('count', 30));
+		
+		$this->view->offset = $offset;
+		$this->view->count = $count;
+		
+		$em = Zend_Registry::get('Entitymanager');
+		$model = $em->getRepository('Content\Post');
+		
+		if (!empty($model) && $model instanceof Content\Post)
+		{
+			$m = new Content\Post;
+			
+		}
 		$this->getResponse()->setHttpResponseCode(200);
 	}
 
@@ -48,18 +88,24 @@ class Api_ContentController extends Zend_Rest_Controller {
 	}
 
 	public function postAction() {
+		// Check authentication
+		$this->checkAuthentication();
 		
 		$this->view->message = "Resource Created";
 		$this->getResponse()->setHttpResponseCode(201);
 	}
 
 	public function putAction() {
+		// Check authentication
+		$this->checkAuthentication();
 		
 		$this->view->message = sprintf( "Resource #%s Updated", $this->_getParam('id') );
 		$this->getResponse()->setHttpResponseCode(201);
 	}
 
 	public function deleteAction() {
+		// Check authentication
+		$this->checkAuthentication();
 		
 		$this->view->message = sprintf( "Resource #%s Deleted", $this->_getParam('id') );
 		$this->getResponse()->setHttpResponseCode(200);
