@@ -75,7 +75,7 @@ class Api_ContentController extends Zend_Rest_Controller {
 		
 		if (!empty($model) && $model instanceof Content\Post)
 		{
-			$m = new Content\Post;
+			$this->view->is_post_model = 1;
 			
 		}
 		$this->getResponse()->setHttpResponseCode(200);

@@ -8,12 +8,12 @@ namespace Content;
 class PostComment
 {
 	/**
-         * @OneToOne(targetEntity="Content\Post") 
+         * @OneToOne(targetEntity="Content\Post",mappedBy="Post") 
          * @JoinColumn(name="post_id_fk", referencedColumnName="post_id")
          */
 	private $post;
 	/**
-         * @OneToOne(targetEntity="Content\Comment") 
+         * @OneToOne(targetEntity="Content\Comment",mappedBy="Comment") 
          * @JoinColumn(name="comment_id_fk", referencedColumnName="comment_id")
          */
 	private $comment;
